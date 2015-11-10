@@ -5,37 +5,127 @@ author      : Angelos Krypotos
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : prettify # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
+mode        : standalone # {selfcontained, standalone, draft}
+widgets    : [bootstrap, quiz, shiny, interactive]
 knit        : slidify::knit2slides
 ---
 
+[//]: # (Change the background color of the title slide)
+
+<style>
+  .title-slide {
+    background-color:  #EDE0CF; /*; ; #CA9F9D*/
+      /* background-image:url(http://goo.gl/EpXln); */
+  }
+</style>
+
+
+<div style='text-align: center;'>
+    <img width = '900' height='700' src='images/noreturn.jpg' />
+</div>
+
+--- &twocol
+
 ## Welcome
 
-- Goal of today is to show you what R can do
+> - Goal of today is to show you what R can do
 
-- 2-hours are not enough though...
+> - 2-hours are not enough though...
 
-- But I will show what is relevant for your research
+> - But I will show what is relevant for your research
 
---- .class #id 
+*** =right 
+
+
+<div style='text-align: center;'>
+    <img height='300' src='images/Rlogo.png' />
+</div>
+
+
+---
 
 ## The thing called R
 
-R is a programming language widely used for statistics
+> - R is a programming language widely used for statistics
 
-Born: 1993
+> - Born: 1993
 
-After 22 years, R is more popular than every before!
+> - After 22 years, R is more popular than every before!
 
-But why?
+> - But why?
+
+
+---
+
+## Reasons why R is cool
+
+> - R allows a wide array of statistical analyses
+
+> - If used in combination with other languages (markdown) you
+can get reports of data
+
+> - It is actually free and plenty of online resources are free
+
+> - Open source
+
+> - Large supporting community
+
+<div style='text-align: center;'>
+    <img height='300' src='images/cool.jpg'/>
+</div>
+
+---
+
+## So what can R do for me?
+
+<div style='text-align: center;'>
+    <img height='300' src='images/demo.jpg'/>
+</div>
+
+---
+# Simple stuff that you can do in R
+
+```{r results = 'asis', comment = NA}
+"Hello, World!"
+```
+
+
+```{r results = 'asis'}
+2 + 2
+```
+
+```{r results = 'asis'}
+1000/10
+```
+
+```{r results = 'asis'}
+1:10 - .5
+```
+
+--- 
+## R's plots
+
+```{r results = 'asis'}
+plot(1:10)
+```
+
+--- 
+
+## Interactive Console
+
+```{r echo = FALSE, opts.label = 'interactive', results = 'asis'}
+library(googleVis)
+M1 <- gvisMotionChart(Fruits, idvar = 'Fruit', timevar = 'Year')
+print(M1, tag = 'chart')
+```
 
 
 
-## What is all that fuss with R anyway?
 
-R allows the 
+
+
+
+
 
 
 
