@@ -13,6 +13,6 @@ the rest of the code should work fine.
 
 The **example code** can be in the same folder under the name "exampleScriptShare.R". The HTML result
 is under the name "exampleScriptShare.html". Be aware that if you want to run the code, you will generate 2000 csv files.
-If you want to generate a smaller number of samples (e.g., 20) change *1:2000* to the number of sample you want (e.g., *1:20*).
+If you want to generate a smaller number of samples (e.g., 20) change *1:2000* (see line 9 on the relevant script) to the number of sample you want (e.g., *1:20*).
 
 For some **online** manuals, you can check the manuals on CRAN's website (Go to https://cran.r-project.org/ and click on the "Manuals" tab). Also check the amazing R reference card (https://cran.r-project.org/doc/contrib/Short-refcard.pdf). More targeted materials will be provided after the beginning of the course. If, however, you have any question before that time, just ask :)
