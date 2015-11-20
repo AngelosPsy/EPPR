@@ -5,7 +5,8 @@ Here you can find all the slideshows and notes for the course 'R for EPP researc
 ## Lecture 1
 Lecture 1 took place on the 19 of November 2015, from 12:00 to 13:45 at Utrecht University.
 The **slides** can be found in the folder "Lecture 1", under the name "Lecture1.html". The relevant
-code can be found in the same folder under the name "index.Rmd".
+code can be found in the same folder under the name "index.Rmd". If you want to check the files, please 
+download them as they do not look good online.
 
 *NOTE*: I had to remove parts of the twitter code as it contained personal information. Apart from that,
 the rest of the code should work fine.
