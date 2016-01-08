@@ -5,8 +5,8 @@ Please check the relevant [wiki](https://github.com/AngelosPsy/EPPR/wiki) for us
 about the course.
 
 ## Slides
-Check the lecture notes (here)[https://github.com/AngelosPsy/EPPR/wiki/Lectures]. The source code is included
+Check the lecture notes [here](https://github.com/AngelosPsy/EPPR/wiki/Lectures). The source code is included
   in the repository.
   
 ## Assignments
-Check (here)[https://github.com/AngelosPsy/EPPR/tree/master/Assignments].
+Check [here](https://github.com/AngelosPsy/EPPR/tree/master/Assignments).
