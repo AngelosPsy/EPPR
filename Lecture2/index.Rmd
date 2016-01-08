@@ -292,7 +292,7 @@ x
 ``` {r}
 x[c(3, 5), 2]
 x[1:2, ]
-x[x[, 1] > 1, ] # Yes, it is ugly
+x[x[, 1] > 200, 1] # Yes, it is ugly
 ```
 
 ----
@@ -368,8 +368,8 @@ and of different dimensions!
 ## Lists (example)
 
 ``` {r }
-my.list = list(myNums = 1:10, myChar = c("I like it", "not"),
-               myMatrix = matrix(100:105, 3, 2), "Bugg")
+my.list <- list(my.Nums = 1:10, my.Char = c("I like it", "not"),
+               my.Matrix = matrix(100:105, 3, 2), "Bugg")
 my.list
 ```
 
@@ -378,7 +378,7 @@ my.list
 ``` {r }
 my.list[["myNums"]]
 my.list[[1]]
-my.list$myNums
+my.list$my.Nums
 ```
 
 ---
@@ -419,7 +419,7 @@ and move from there on (see below)
 
 --- 
 ```{r}
-myDF = data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
+my.DF <- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c("M", "F", "M", "F", "M", "F", "M", "F", "M", "F"))
 head(myDF)
 myDF$liz = list("1", "2")

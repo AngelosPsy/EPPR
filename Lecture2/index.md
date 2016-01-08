@@ -465,16 +465,11 @@ x[1:2, ]
 ```
 
 ```r
-x[x[, 1] > 1, ] # Yes, it is ugly
+x[x[, 1] > 200, 1] # Yes, it is ugly
 ```
 
 ```
-##      [,1] [,2]
-## [1,]  134    4
-## [2,]  414   12
-## [3,]  211   55
-## [4,] 5523   11
-## [5,]   12   22
+## [1]  414  211 5523
 ```
 
 ----
@@ -607,19 +602,19 @@ and of different dimensions!
 
 
 ```r
-my.list = list(myNums = 1:10, myChar = c("I like it", "not"),
-               myMatrix = matrix(100:105, 3, 2), "Bugg")
+my.list <- list(my.Nums = 1:10, my.Char = c("I like it", "not"),
+               my.Matrix = matrix(100:105, 3, 2), "Bugg")
 my.list
 ```
 
 ```
-## $myNums
+## $my.Nums
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
-## $myChar
+## $my.Char
 ## [1] "I like it" "not"      
 ## 
-## $myMatrix
+## $my.Matrix
 ##      [,1] [,2]
 ## [1,]  100  103
 ## [2,]  101  104
@@ -637,7 +632,7 @@ my.list[["myNums"]]
 ```
 
 ```
-##  [1]  1  2  3  4  5  6  7  8  9 10
+## NULL
 ```
 
 ```r
@@ -649,7 +644,7 @@ my.list[[1]]
 ```
 
 ```r
-my.list$myNums
+my.list$my.Nums
 ```
 
 ```
@@ -710,31 +705,29 @@ and move from there on (see below)
 --- 
 
 ```r
-myDF = data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
+my.DF <- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c("M", "F", "M", "F", "M", "F", "M", "F", "M", "F"))
 head(myDF)
 ```
 
 ```
-##   ID condition Sex
-## 1  1         1   M
-## 2  2         2   F
-## 3  3         1   M
-## 4  4         2   F
-## 5  5         2   M
-## 6  6         1   F
+## Error in head(myDF): error in evaluating the argument 'x' in selecting a method for function 'head': Error: object 'myDF' not found
 ```
 
 ```r
 myDF$liz = list("1", "2")
+```
+
+```
+## Error in myDF$liz = list("1", "2"): object 'myDF' not found
+```
+
+```r
 tail(myDF, n = 3)
 ```
 
 ```
-##    ID condition Sex liz
-## 8   8         2   F   2
-## 9   9         1   M   1
-## 10 10         1   F   2
+## Error in tail(myDF, n = 3): error in evaluating the argument 'x' in selecting a method for function 'tail': Error: object 'myDF' not found
 ```
 
 ---

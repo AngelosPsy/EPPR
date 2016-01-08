@@ -548,15 +548,10 @@ x
 ## [2,]  414   12
 </code></pre>
 
-<pre><code class="r">x[x[, 1] &gt; 1, ] # Yes, it is ugly
+<pre><code class="r">x[x[, 1] &gt; 200, 1] # Yes, it is ugly
 </code></pre>
 
-<pre><code>##      [,1] [,2]
-## [1,]  134    4
-## [2,]  414   12
-## [3,]  211   55
-## [4,] 5523   11
-## [5,]   12   22
+<pre><code>## [1]  414  211 5523
 </code></pre>
 
   </article>
@@ -715,18 +710,18 @@ and of different dimensions!</p></li>
     <h2>Lists (example)</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">my.list = list(myNums = 1:10, myChar = c(&quot;I like it&quot;, &quot;not&quot;),
-               myMatrix = matrix(100:105, 3, 2), &quot;Bugg&quot;)
+    <pre><code class="r">my.list &lt;- list(my.Nums = 1:10, my.Char = c(&quot;I like it&quot;, &quot;not&quot;),
+               my.Matrix = matrix(100:105, 3, 2), &quot;Bugg&quot;)
 my.list
 </code></pre>
 
-<pre><code>## $myNums
+<pre><code>## $my.Nums
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ## 
-## $myChar
+## $my.Char
 ## [1] &quot;I like it&quot; &quot;not&quot;      
 ## 
-## $myMatrix
+## $my.Matrix
 ##      [,1] [,2]
 ## [1,]  100  103
 ## [2,]  101  104
@@ -748,7 +743,7 @@ my.list
     <pre><code class="r">my.list[[&quot;myNums&quot;]]
 </code></pre>
 
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+<pre><code>## NULL
 </code></pre>
 
 <pre><code class="r">my.list[[1]]
@@ -757,7 +752,7 @@ my.list
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
 </code></pre>
 
-<pre><code class="r">my.list$myNums
+<pre><code class="r">my.list$my.Nums
 </code></pre>
 
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
@@ -831,28 +826,24 @@ and move from there on (see below)</li>
 
 <slide class="" id="slide-32" style="background:;">
   <article data-timings="">
-    <pre><code class="r">myDF = data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
+    <pre><code class="r">my.DF &lt;- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c(&quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;))
 head(myDF)
 </code></pre>
 
-<pre><code>##   ID condition Sex
-## 1  1         1   M
-## 2  2         2   F
-## 3  3         1   M
-## 4  4         2   F
-## 5  5         2   M
-## 6  6         1   F
+<pre><code>## Error in head(myDF): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: Error: object &#39;myDF&#39; not found
 </code></pre>
 
 <pre><code class="r">myDF$liz = list(&quot;1&quot;, &quot;2&quot;)
-tail(myDF, n = 3)
 </code></pre>
 
-<pre><code>##    ID condition Sex liz
-## 8   8         2   F   2
-## 9   9         1   M   1
-## 10 10         1   F   2
+<pre><code>## Error in myDF$liz = list(&quot;1&quot;, &quot;2&quot;): object &#39;myDF&#39; not found
+</code></pre>
+
+<pre><code class="r">tail(myDF, n = 3)
+</code></pre>
+
+<pre><code>## Error in tail(myDF, n = 3): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;tail&#39;: Error: object &#39;myDF&#39; not found
 </code></pre>
 
   </article>
