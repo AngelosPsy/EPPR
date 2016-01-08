@@ -9,7 +9,6 @@ framework: io2012
 highlighter : highlight.js
 hitheme     : tomorrow 
 ---
-
 <style>
   .title-slide {
     background-color:  #0000FF; /*; ; #CA9F9D*/
@@ -24,6 +23,7 @@ hitheme     : tomorrow
   color: #FFFFFF ;  /* ; #EF5150*/
 }
 </style>
+
 
 ---
 ## A few words about the course
@@ -49,6 +49,8 @@ hitheme     : tomorrow
 
 - Discover what a working directory is (well, not that exciting)
 
+- Explain how you can download and load a package
+
 - Explain your first homework
 
 ---
@@ -62,7 +64,6 @@ hitheme     : tomorrow
 
 >- We got our feet wet with R objects
 
->- Homework: Read the slides from last time 
 
 ---- .smallcode
 ## Help!
@@ -83,6 +84,7 @@ apropos("colMeans")
 ## [1] ".__T__colMeans:base" ".colMeans"           "colMeans"           
 ## [4] "colMeans"
 ```
+
 
 ```r
 ?MEAN
@@ -149,7 +151,7 @@ x <- c(53, 132, 4)
 y <- c("apple", "orange")
 ```
 
-- Keeping together numbers or strings 
+- Keeping together numbers, strings or booleans
 
 - If more than 1 entity, the different entities should be included in
 the function c()
@@ -229,7 +231,7 @@ sample(x = 1:10, 2, replace = TRUE)
 ```
 
 ```
-## [1]  2 10
+## [1] 6 2
 ```
 
 ```r
@@ -323,7 +325,7 @@ x
 - Crude description: 2 dimensional vectors
 - You need to define a matrix by using the function matrix()
 
->- Why don't you check what happens whtn byrow is set to TRUE?
+>- Why don't you check what happens whan byrow is set to TRUE?
 
 ----
 
@@ -437,8 +439,8 @@ x
 ```
 
 *Questions*
-- How would you select rows 3, 5 for column 2?
-- How would you select rows 1, 2 for all columns?
+- How would you select rows 3, and 5 for column 2?
+- How would you select rows 1, and 2 for all columns?
 - How would you select the values of column 1 that are above 200?
 
 ----
@@ -521,24 +523,6 @@ cbind(x, "Question 3" = c(1, 4, 3, 5, 1))
 ```
 
 ---- .smallcode
-### Matrix (expansion)
-
-
-```r
-cbind(x, c(1, 4, 3, 5, 1))
-```
-
-```
-##      [,1] [,2] [,3]
-## [1,]  134    4    1
-## [2,]  414   12    4
-## [3,]  211   55    3
-## [4,] 5523   11    5
-## [5,]   12   22    1
-```
-
-
----- .smallcode
 
 Can you explain the following?
 
@@ -561,7 +545,7 @@ x
 ## [5,]   12   22
 ```
 
-Since you can combine columns with 'cbind', do you think how you can combine rows?
+Since you can combine columns with 'cbind', how could you combine rows?
 >- rbind
 
 ----
@@ -593,7 +577,7 @@ as.factor(group)
 
 - Combine data of a single type
 - Indexing not as easy, or intuitive, as in data frames (see below)
-- A series of useful functions, work better with data frames (see dplyr, ggplot2, etc.)
+- A series of useful functions, work better with data frames (see dplyr, ggplot2, packages etc.)
 
 
 ```r
@@ -623,8 +607,9 @@ and of different dimensions!
 
 
 ```r
-list(myNums = 1:10, myChar = c("I like it", "not"),
+my.list = list(myNums = 1:10, myChar = c("I like it", "not"),
                myMatrix = matrix(100:105, 3, 2), "Bugg")
+my.list
 ```
 
 ```
@@ -644,72 +629,70 @@ list(myNums = 1:10, myChar = c("I like it", "not"),
 ## [1] "Bugg"
 ```
 
+---
+## Lists (indexing)
+
 ```r
-myList
+my.list[["myNums"]]
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'myList' not found
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+```r
+my.list[[1]]
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+```r
+my.list$myNums
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
 ```
 
 ---
 ## Lists (indexing)
 
-```r
-myList[["myNums"]]
-```
+- What happened here?
 
-```
-## Error in eval(expr, envir, enclos): object 'myList' not found
-```
+
 
 ```r
-myList[[1]]
+my.list$Bugg
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'myList' not found
-```
-
-```r
-myList$myNums
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'myList' not found
+## NULL
 ```
 
 ---
-## Lists (indexing), Explain
+## Lists (indexing)
 
-```r
-myList$Bugg
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'myList' not found
-```
-
----
-## Lists (indexing), Explain
+- What happened here?
 
 
 ```r
-myList$Bugg
+my.list$Bugg
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'myList' not found
+## NULL
 ```
 
 
 
 ```r
-myList[[4]]
+my.list[[4]]
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'myList' not found
+## [1] "Bugg"
 ```
 
 
@@ -828,19 +811,40 @@ getwd()
 ```
 
 ```r
-setwd("/Users/angelos-miltiadiskrypotos/Dropbox")
+setwd("C:/Users/Krypo001/Dropbox")
+getwd()
 ```
 
 ```
-## Error in setwd("/Users/angelos-miltiadiskrypotos/Dropbox"): cannot change working directory
+## [1] "C:/Users/Krypo001/Dropbox"
 ```
+
+---
+## Working directory
+### Things to look after
+
+- Seperate the differt folders in the path with either "/" or "\\\\".
+Do not use "\".
+
+- It is also fine to set a path relative to your working directory. 
+
 
 ```r
+setwd("C:/Users/Krypo001/Dropbox/PostDocUU/eepR/lecture2")
 getwd()
 ```
 
 ```
 ## [1] "C:/Users/Krypo001/Dropbox/PostDocUU/eepR/lecture2"
+```
+
+```r
+setwd("./assets")
+getwd()
+```
+
+```
+## [1] "C:/Users/Krypo001/Dropbox/PostDocUU/eepR/lecture2/assets"
 ```
 
 ---
@@ -857,26 +861,27 @@ library("myAwesomePackageR")
 
 Alternatively, use the 'packages' tab (bottom right side) in R studio.
 
-
 ---
-## Working directory (why it is important)
+## Working directory 
+### Why should you care?
 
 - You can just store your data there and point
 to your directory
 
 - Better not sure setwd() when using .Rnw files [Yihui Xie on that](https://groups.google.com/forum/?fromgroups=#!topic/knitr/knM0VWoexT0)
+- Main reason: reproducibility problems
 
 
 ---
 ## Instructions on Assignment
 
-- All assignments can be found [here](https://github.com/AngelosPsy/EPPR)
+- All assignments can be found [here](https://github.com/AngelosPsy/EPPR/tree/master/Assignments)
 - You can hand in your assignments by sending me an html document, with, when
 asked, runnable code.
 - Note: make sure that you remove the "eval = T", wherever you see it.
 - Note: For writing text you should start each line with "#'" (without the quotation)
 
 
+---
 
-
-
+## The end

@@ -87,6 +87,7 @@
 <li><p>Explain the different R data types</p></li>
 <li><p>Become fluent in indexing</p></li>
 <li><p>Discover what a working directory is (well, not that exciting)</p></li>
+<li><p>Explain how you can download and load a package</p></li>
 <li><p>Explain your first homework</p></li>
 </ul>
 
@@ -104,7 +105,6 @@
 <li><p>We checked the R studio GUI</p></li>
 <li><p>We explained what errors and warnings are</p></li>
 <li><p>We got our feet wet with R objects</p></li>
-<li><p>Homework: Read the slides from last time </p></li>
 </ul>
 
   </article>
@@ -215,7 +215,7 @@ y &lt;- c(&quot;apple&quot;, &quot;orange&quot;)
 </code></pre>
 
 <ul>
-<li><p>Keeping together numbers or strings </p></li>
+<li><p>Keeping together numbers, strings or booleans</p></li>
 <li><p>If more than 1 entity, the different entities should be included in
 the function c()</p></li>
 <li><p>In case of a sequence of numbers (e.g., 1:10), c can be ommitted.</p></li>
@@ -289,7 +289,7 @@ order(x)
 <pre><code class="r">sample(x = 1:10, 2, replace = TRUE)
 </code></pre>
 
-<pre><code>## [1]  2 10
+<pre><code>## [1] 6 2
 </code></pre>
 
 <pre><code class="r">table(x)
@@ -391,7 +391,7 @@ x
 </ul>
 
 <ul class = "build incremental">
-<li>Why don&#39;t you check what happens whtn byrow is set to TRUE?</li>
+<li>Why don&#39;t you check what happens whan byrow is set to TRUE?</li>
 </ul>
 
   </article>
@@ -523,8 +523,8 @@ x
 <p><em>Questions</em></p>
 
 <ul>
-<li>How would you select rows 3, 5 for column 2?</li>
-<li>How would you select rows 1, 2 for all columns?</li>
+<li>How would you select rows 3, and 5 for column 2?</li>
+<li>How would you select rows 1, and 2 for all columns?</li>
 <li>How would you select the values of column 1 that are above 200?</li>
 </ul>
 
@@ -612,26 +612,6 @@ x
 </slide>
 
 <slide class="smallcode" id="slide-23" style="background:;">
-  <hgroup>
-    <h3>Matrix (expansion)</h3>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r">cbind(x, c(1, 4, 3, 5, 1))
-</code></pre>
-
-<pre><code>##      [,1] [,2] [,3]
-## [1,]  134    4    1
-## [2,]  414   12    4
-## [3,]  211   55    3
-## [4,] 5523   11    5
-## [5,]   12   22    1
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="smallcode" id="slide-24" style="background:;">
   <article data-timings="">
     <p>Can you explain the following?</p>
 
@@ -649,7 +629,7 @@ x
 ## [5,]   12   22
 </code></pre>
 
-<p>Since you can combine columns with &#39;cbind&#39;, do you think how you can combine rows?</p>
+<p>Since you can combine columns with &#39;cbind&#39;, how could you combine rows?</p>
 
 <ul class = "build incremental">
 <li>rbind</li>
@@ -659,7 +639,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Factors</h2>
   </hgroup>
@@ -687,7 +667,7 @@ factor(group)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="smallcode" id="slide-26" style="background:;">
+<slide class="smallcode" id="slide-25" style="background:;">
   <hgroup>
     <h2>Matrix (Some drawbacks)</h2>
   </hgroup>
@@ -695,7 +675,7 @@ factor(group)
     <ul>
 <li>Combine data of a single type</li>
 <li>Indexing not as easy, or intuitive, as in data frames (see below)</li>
-<li>A series of useful functions, work better with data frames (see dplyr, ggplot2, etc.)</li>
+<li>A series of useful functions, work better with data frames (see dplyr, ggplot2, packages etc.)</li>
 </ul>
 
 <pre><code class="r">matrix(c(1, 2, &quot;Man&quot;, &quot;Woman&quot;), 2, 2)
@@ -710,7 +690,7 @@ factor(group)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>Lists</h2>
   </hgroup>
@@ -730,13 +710,14 @@ and of different dimensions!</p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="smallcode" id="slide-28" style="background:;">
+<slide class="smallcode" id="slide-27" style="background:;">
   <hgroup>
     <h2>Lists (example)</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">list(myNums = 1:10, myChar = c(&quot;I like it&quot;, &quot;not&quot;),
+    <pre><code class="r">my.list = list(myNums = 1:10, myChar = c(&quot;I like it&quot;, &quot;not&quot;),
                myMatrix = matrix(100:105, 3, 2), &quot;Bugg&quot;)
+my.list
 </code></pre>
 
 <pre><code>## $myNums
@@ -755,10 +736,31 @@ and of different dimensions!</p></li>
 ## [1] &quot;Bugg&quot;
 </code></pre>
 
-<pre><code class="r">myList
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Lists (indexing)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">my.list[[&quot;myNums&quot;]]
 </code></pre>
 
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre><code class="r">my.list[[1]]
+</code></pre>
+
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre><code class="r">my.list$myNums
+</code></pre>
+
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
 </code></pre>
 
   </article>
@@ -770,22 +772,14 @@ and of different dimensions!</p></li>
     <h2>Lists (indexing)</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">myList[[&quot;myNums&quot;]]
+    <ul>
+<li>What happened here?</li>
+</ul>
+
+<pre><code class="r">my.list$Bugg
 </code></pre>
 
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
-</code></pre>
-
-<pre><code class="r">myList[[1]]
-</code></pre>
-
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
-</code></pre>
-
-<pre><code class="r">myList$myNums
-</code></pre>
-
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+<pre><code>## NULL
 </code></pre>
 
   </article>
@@ -794,13 +788,23 @@ and of different dimensions!</p></li>
 
 <slide class="" id="slide-30" style="background:;">
   <hgroup>
-    <h2>Lists (indexing), Explain</h2>
+    <h2>Lists (indexing)</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">myList$Bugg
+    <ul>
+<li>What happened here?</li>
+</ul>
+
+<pre><code class="r">my.list$Bugg
 </code></pre>
 
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+<pre><code>## NULL
+</code></pre>
+
+<pre><code class="r">my.list[[4]]
+</code></pre>
+
+<pre><code>## [1] &quot;Bugg&quot;
 </code></pre>
 
   </article>
@@ -808,27 +812,6 @@ and of different dimensions!</p></li>
 </slide>
 
 <slide class="" id="slide-31" style="background:;">
-  <hgroup>
-    <h2>Lists (indexing), Explain</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r">myList$Bugg
-</code></pre>
-
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
-</code></pre>
-
-<pre><code class="r">myList[[4]]
-</code></pre>
-
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Data frames</h2>
   </hgroup>
@@ -846,7 +829,7 @@ and move from there on (see below)</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <article data-timings="">
     <pre><code class="r">myDF = data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c(&quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;))
@@ -876,7 +859,7 @@ tail(myDF, n = 3)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Data frames (indexing)</h2>
   </hgroup>
@@ -906,7 +889,7 @@ tail(myDF, n = 3)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>Convert</h2>
   </hgroup>
@@ -931,7 +914,7 @@ types</p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Working directory</h2>
   </hgroup>
@@ -953,7 +936,7 @@ you need to give the relative, or full path of the file.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Working directory</h2>
   </hgroup>
@@ -964,16 +947,42 @@ you need to give the relative, or full path of the file.</li>
 <pre><code>## [1] &quot;C:/Users/Krypo001/Dropbox/PostDocUU/eepR/lecture2&quot;
 </code></pre>
 
-<pre><code class="r">setwd(&quot;/Users/angelos-miltiadiskrypotos/Dropbox&quot;)
+<pre><code class="r">setwd(&quot;C:/Users/Krypo001/Dropbox&quot;)
+getwd()
 </code></pre>
 
-<pre><code>## Error in setwd(&quot;/Users/angelos-miltiadiskrypotos/Dropbox&quot;): cannot change working directory
+<pre><code>## [1] &quot;C:/Users/Krypo001/Dropbox&quot;
 </code></pre>
 
-<pre><code class="r">getwd()
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-37" style="background:;">
+  <hgroup>
+    <h2>Working directory</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Things to look after</h3>
+
+<ul>
+<li><p>Seperate the differt folders in the path with either &quot;/&quot; or &quot;\\&quot;.
+Do not use &quot;\&quot;.</p></li>
+<li><p>It is also fine to set a path relative to your working directory. </p></li>
+</ul>
+
+<pre><code class="r">setwd(&quot;C:/Users/Krypo001/Dropbox/PostDocUU/eepR/lecture2&quot;)
+getwd()
 </code></pre>
 
 <pre><code>## [1] &quot;C:/Users/Krypo001/Dropbox/PostDocUU/eepR/lecture2&quot;
+</code></pre>
+
+<pre><code class="r">setwd(&quot;./assets&quot;)
+getwd()
+</code></pre>
+
+<pre><code>## [1] &quot;C:/Users/Krypo001/Dropbox/PostDocUU/eepR/lecture2/assets&quot;
 </code></pre>
 
   </article>
@@ -1003,13 +1012,16 @@ library(&quot;myAwesomePackageR&quot;)
 
 <slide class="" id="slide-39" style="background:;">
   <hgroup>
-    <h2>Working directory (why it is important)</h2>
+    <h2>Working directory</h2>
   </hgroup>
   <article data-timings="">
-    <ul>
+    <h3>Why should you care?</h3>
+
+<ul>
 <li><p>You can just store your data there and point
 to your directory</p></li>
 <li><p>Better not sure setwd() when using .Rnw files <a href="https://groups.google.com/forum/?fromgroups=#!topic/knitr/knM0VWoexT0">Yihui Xie on that</a></p></li>
+<li><p>Main reason: reproducibility problems</p></li>
 </ul>
 
   </article>
@@ -1022,13 +1034,23 @@ to your directory</p></li>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>All assignments can be found <a href="https://github.com/AngelosPsy/EPPR">here</a></li>
+<li>All assignments can be found <a href="https://github.com/AngelosPsy/EPPR/tree/master/Assignments">here</a></li>
 <li>You can hand in your assignments by sending me an html document, with, when
 asked, runnable code.</li>
 <li>Note: make sure that you remove the &quot;eval = T&quot;, wherever you see it.</li>
 <li>Note: For writing text you should start each line with &quot;#&#39;&quot; (without the quotation)</li>
 </ul>
 
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-41" style="background:;">
+  <hgroup>
+    <h2>The end</h2>
+  </hgroup>
+  <article data-timings="">
+    
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -1171,37 +1193,37 @@ asked, runnable code.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Matrix (expansion)'>
+        data-slide=23 title='NA'>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='NA'>
+        data-slide=24 title='Factors'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='Factors'>
+        data-slide=25 title='Matrix (Some drawbacks)'>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Matrix (Some drawbacks)'>
+        data-slide=26 title='Lists'>
          26
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='Lists'>
+        data-slide=27 title='Lists (example)'>
          27
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='Lists (example)'>
+        data-slide=28 title='Lists (indexing)'>
          28
       </a>
     </li>
@@ -1213,37 +1235,37 @@ asked, runnable code.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='Lists (indexing), Explain'>
+        data-slide=30 title='Lists (indexing)'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='Lists (indexing), Explain'>
+        data-slide=31 title='Data frames'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Data frames'>
+        data-slide=32 title='NA'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='NA'>
+        data-slide=33 title='Data frames (indexing)'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='Data frames (indexing)'>
+        data-slide=34 title='Convert'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Convert'>
+        data-slide=35 title='Working directory'>
          35
       </a>
     </li>
@@ -1267,7 +1289,7 @@ asked, runnable code.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='Working directory (why it is important)'>
+        data-slide=39 title='Working directory'>
          39
       </a>
     </li>
@@ -1275,6 +1297,12 @@ asked, runnable code.</li>
       <a href="#" target="_self" rel='tooltip' 
         data-slide=40 title='Instructions on Assignment'>
          40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='The end'>
+         41
       </a>
     </li>
   </ul>
