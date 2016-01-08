@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R for EPP</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R for EPP">
+  <meta name="author" content="Angelos Krypotos">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R for EPP</h1>
+    <h2>Objects, Indexing, Directories</h2>
+    <p>Angelos Krypotos<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+  .title-slide {
+    background-color:  #0000FF; /*; ; #CA9F9D*/
+      /* background-image:url(http://goo.gl/EpXln); */
+  }
+</style>
+
+<style>
+.title-slide hgroup > h1, 
+.title-slide hgroup > h2 {
+  color: #FFFFFF ;  /* ; #EF5150*/
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>A few words about the course</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li><p>Goals</p></li>
+<li><p>Structure</p></li>
+<li><p>Feedback</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Goals of today&#39;s presentation</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Short recap of Lecture 1</p></li>
+<li><p>Show you how you can find help within R</p></li>
+<li><p>Explain the different R data types</p></li>
+<li><p>Become fluent in indexing</p></li>
+<li><p>Discover what a working directory is (well, not that exciting)</p></li>
+<li><p>Explain your first homework</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Last time</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li><p>We had a first taste of what R can do</p></li>
+<li><p>We checked the R studio GUI</p></li>
+<li><p>We explained what errors and warnings are</p></li>
+<li><p>We got our feet wet with R objects</p></li>
+<li><p>Homework: Read the slides from last time </p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smallcode" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Help!</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">?mean
+??mean
+help.search(&quot;mean&quot;)
+</code></pre>
+
+<pre><code class="r">apropos(&quot;colMeans&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;.__T__colMeans:base&quot; &quot;.colMeans&quot;           &quot;colMeans&quot;           
+## [4] &quot;colMeans&quot;
+</code></pre>
+
+<pre><code class="r">?MEAN
+</code></pre>
+
+<pre><code>## No documentation for &#39;MEAN&#39; in specified packages and libraries:
+## you could try &#39;??MEAN&#39;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Data types</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>A first look</h3>
+
+<pre><code class="r">x &lt;- c(1, 3, 5)
+y &lt;- 5
+months &lt;- c(&quot;January&quot;, &quot;February&quot;)
+</code></pre>
+
+<p>To create an object, that will remain in your workplace, you should:</p>
+
+<ul>
+<li>1. Give a (meaninful) name (e.g., x, y, months)</li>
+<li>2. Use an assignment operator (e.g., &lt;-, =)</li>
+<li>3. Define your object (e.g., 5, c(&quot;January&quot;, &quot;February&quot;))</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smallcode" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Basic operators</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Arithmetic operators (examples)</p>
+
+<pre><code class="r">y + 2
+8 * 4
+</code></pre>
+
+<p>Boolean operators (examples)</p>
+
+<pre><code class="r">x &gt; 5
+y &lt; 5
+x == 4
+x != 4
+x %in% c(4, 5)
+!x %in% c(4, 5)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Basic R data structures</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>vector</li>
+<li>matrix</li>
+<li>list</li>
+<li>data.frame</li>
+<li>array (Not covered)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Vectors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x &lt;- c(53, 132, 4)
+y &lt;- c(&quot;apple&quot;, &quot;orange&quot;)
+</code></pre>
+
+<ul>
+<li><p>Keeping together numbers or strings </p></li>
+<li><p>If more than 1 entity, the different entities should be included in
+the function c()</p></li>
+<li><p>In case of a sequence of numbers (e.g., 1:10), c can be ommitted.</p></li>
+<li><p>Also</p></li>
+</ul>
+
+<pre><code class="r">seq(from = 1, to = 10, by = 0.5)
+</code></pre>
+
+<pre><code>##  [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5
+## [15]  8.0  8.5  9.0  9.5 10.0
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>The paste function</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">paste(c(&quot;Part&quot;), 1:5, sep = &quot;_&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;Part_1&quot; &quot;Part_2&quot; &quot;Part_3&quot; &quot;Part_4&quot; &quot;Part_5&quot;
+</code></pre>
+
+<ul>
+<li>Can you think where this function can be useful for you?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Useful functions</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <pre><code class="r">x &lt;- c(2, 5, 6)
+order(x)
+</code></pre>
+
+<pre><code>## [1] 1 2 3
+</code></pre>
+
+<pre><code class="r">sort(x)
+</code></pre>
+
+<pre><code>## [1] 2 5 6
+</code></pre>
+
+<pre><code class="r">length(x)
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">rep(1, 10)
+</code></pre>
+
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1
+</code></pre>
+
+<pre><code class="r">sample(x = 1:10, 2, replace = TRUE)
+</code></pre>
+
+<pre><code>## [1]  2 10
+</code></pre>
+
+<pre><code class="r">table(x)
+</code></pre>
+
+<pre><code>## x
+## 2 5 6 
+## 1 1 1
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Vectors (Indexing)</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p>Simple cases</p>
+
+<pre><code class="r">stai &lt;- c(40, 30, 41, 23, 42, 50)
+stai[1]
+</code></pre>
+
+<pre><code>## [1] 40
+</code></pre>
+
+<pre><code class="r">stai[2]
+</code></pre>
+
+<pre><code>## [1] 30
+</code></pre>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p>In love with Booleans</p>
+
+<pre><code class="r">stai[stai &lt; 30 &amp; stai &gt; 20]
+</code></pre>
+
+<pre><code>## [1] 23
+</code></pre>
+
+<pre><code class="r">stai[stai %in% c(41, 23)]
+</code></pre>
+
+<pre><code>## [1] 41 23
+</code></pre>
+
+<pre><code class="r">stai[!stai %in% c(41, 23)]
+</code></pre>
+
+<pre><code>## [1] 40 30 42 50
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Vectors Indexing</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>The &#39;which&#39; function</h3>
+
+<pre><code class="r">which(stai == 23)
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Matrix</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x &lt;- matrix(c(134, 414, 211, 5523), nrow = 2, ncol = 2, byrow = FALSE)
+x
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]  134  211
+## [2,]  414 5523
+</code></pre>
+
+<ul>
+<li>Crude description: 2 dimensional vectors</li>
+<li>You need to define a matrix by using the function matrix()</li>
+</ul>
+
+<ul class = "build incremental">
+<li>Why don&#39;t you check what happens whtn byrow is set to TRUE?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Matrix</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Dimension names</h3>
+
+<ul>
+<li>You can set the row/column names either by using the &#39;dimnames&#39; argument within the &#39;matrix&#39;
+function or by using the &#39;colnames&#39;, &#39;rownames&#39; functions.</li>
+</ul>
+
+<pre><code class="r">x &lt;- matrix(c(134, 134, 211, 5523), nrow = 2, ncol = 2)
+rownames(x) &lt;- c(&quot;ID1&quot;, &quot;ID2&quot;)
+colnames(x) &lt;- c(&quot;Question1&quot;, &quot;Question2&quot;)
+x
+</code></pre>
+
+<pre><code>##     Question1 Question2
+## ID1       134       211
+## ID2       134      5523
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Matrix</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Useful functions</h3>
+
+<pre><code class="r">colMeans(x)
+rowMeans(x)
+colSums(x)
+rowSums(x)
+</code></pre>
+
+<pre><code class="r">table(x)
+</code></pre>
+
+<pre><code>## x
+##  134  211 5523 
+##    2    1    1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Matrix (indexing)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>You refer to specific rows, and columns.</li>
+</ul>
+
+<pre><code class="r">x
+</code></pre>
+
+<pre><code>##     Question1 Question2
+## ID1       134       211
+## ID2       134      5523
+</code></pre>
+
+<pre><code class="r">x[1, 2]
+</code></pre>
+
+<pre><code>## [1] 211
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Matrix (indexing)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>If, you want to refer to all rows of a specific column you write</p>
+
+<pre><code class="r">x[, 2]
+</code></pre>
+
+<pre><code>##  ID1  ID2 
+##  211 5523
+</code></pre>
+
+<ul>
+<li>How would you refer to all columns of a specific row (e.g., the 1st row)?</li>
+</ul>
+
+<ul class = "build incremental">
+<li>x[1, ]</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smallcode" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Matrix (indexing)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x &lt;- matrix(c(134, 414, 211, 5523, 12, 4, 12, 55, 11, 22), nrow = 5, ncol = 2)
+x
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]  134    4
+## [2,]  414   12
+## [3,]  211   55
+## [4,] 5523   11
+## [5,]   12   22
+</code></pre>
+
+<p><em>Questions</em></p>
+
+<ul>
+<li>How would you select rows 3, 5 for column 2?</li>
+<li>How would you select rows 1, 2 for all columns?</li>
+<li>How would you select the values of column 1 that are above 200?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">x[c(3, 5), 2]
+</code></pre>
+
+<pre><code>## [1] 55 22
+</code></pre>
+
+<pre><code class="r">x[1:2, ]
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]  134    4
+## [2,]  414   12
+</code></pre>
+
+<pre><code class="r">x[x[, 1] &gt; 1, ] # Yes, it is ugly
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]  134    4
+## [2,]  414   12
+## [3,]  211   55
+## [4,] 5523   11
+## [5,]   12   22
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h3>Useful functions</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">head(x)
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]  134    4
+## [2,]  414   12
+## [3,]  211   55
+## [4,] 5523   11
+## [5,]   12   22
+</code></pre>
+
+<pre><code class="r">tail(x)
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]  134    4
+## [2,]  414   12
+## [3,]  211   55
+## [4,] 5523   11
+## [5,]   12   22
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smallcode" id="slide-22" style="background:;">
+  <hgroup>
+    <h3>Matrix (expansion)</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">cbind(x, c(1, 4, 3, 5, 1))
+</code></pre>
+
+<p>Or</p>
+
+<pre><code class="r">cbind(x, &quot;Question 3&quot; = c(1, 4, 3, 5, 1))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smallcode" id="slide-23" style="background:;">
+  <hgroup>
+    <h3>Matrix (expansion)</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">cbind(x, c(1, 4, 3, 5, 1))
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3]
+## [1,]  134    4    1
+## [2,]  414   12    4
+## [3,]  211   55    3
+## [4,] 5523   11    5
+## [5,]   12   22    1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smallcode" id="slide-24" style="background:;">
+  <article data-timings="">
+    <p>Can you explain the following?</p>
+
+<pre><code class="r">cbind(x, c(1, 4, 3, 5, 1))
+</code></pre>
+
+<pre><code class="r">x
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]  134    4
+## [2,]  414   12
+## [3,]  211   55
+## [4,] 5523   11
+## [5,]   12   22
+</code></pre>
+
+<p>Since you can combine columns with &#39;cbind&#39;, do you think how you can combine rows?</p>
+
+<ul class = "build incremental">
+<li>rbind</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Factors</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>For encoding a vector to a factor, use function factor() or as.factor()</li>
+</ul>
+
+<pre><code class="r">group &lt;- c(1, 3, 1, 2)
+factor(group)
+</code></pre>
+
+<pre><code>## [1] 1 3 1 2
+## Levels: 1 2 3
+</code></pre>
+
+<pre><code class="r">as.factor(group)
+</code></pre>
+
+<pre><code>## [1] 1 3 1 2
+## Levels: 1 2 3
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smallcode" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Matrix (Some drawbacks)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Combine data of a single type</li>
+<li>Indexing not as easy, or intuitive, as in data frames (see below)</li>
+<li>A series of useful functions, work better with data frames (see dplyr, ggplot2, etc.)</li>
+</ul>
+
+<pre><code class="r">matrix(c(1, 2, &quot;Man&quot;, &quot;Woman&quot;), 2, 2)
+</code></pre>
+
+<pre><code>##      [,1] [,2]   
+## [1,] &quot;1&quot;  &quot;Man&quot;  
+## [2,] &quot;2&quot;  &quot;Woman&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Lists</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>OK, so vectors have 1 dimensions, matrices 2 dimensions.</li>
+<li>How many dimensions does a list have?</li>
+</ul>
+
+<ul class = "build incremental">
+<li><p>Yes, 3 :)</p></li>
+<li><p>The good part of the list is that it can comnbine data of different types, 
+and of different dimensions!</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smallcode" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Lists (example)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">list(myNums = 1:10, myChar = c(&quot;I like it&quot;, &quot;not&quot;),
+               myMatrix = matrix(100:105, 3, 2), &quot;Bugg&quot;)
+</code></pre>
+
+<pre><code>## $myNums
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $myChar
+## [1] &quot;I like it&quot; &quot;not&quot;      
+## 
+## $myMatrix
+##      [,1] [,2]
+## [1,]  100  103
+## [2,]  101  104
+## [3,]  102  105
+## 
+## [[4]]
+## [1] &quot;Bugg&quot;
+</code></pre>
+
+<pre><code class="r">myList
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Lists (indexing)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">myList[[&quot;myNums&quot;]]
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+</code></pre>
+
+<pre><code class="r">myList[[1]]
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+</code></pre>
+
+<pre><code class="r">myList$myNums
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>Lists (indexing), Explain</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">myList$Bugg
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>Lists (indexing), Explain</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">myList$Bugg
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+</code></pre>
+
+<pre><code class="r">myList[[4]]
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;myList&#39; not found
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>Data frames</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The most useful, and relevant, data type.</li>
+<li>Although it looks like a matrix, it can hold multiple
+data types</li>
+<li>Popular packages (e.g., plyr, ggplot2) play well with data.frames</li>
+<li>Sometimes it is just easier to convert a matrix to a data frame 
+and move from there on (see below)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">myDF = data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
+Sex = c(&quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;))
+head(myDF)
+</code></pre>
+
+<pre><code>##   ID condition Sex
+## 1  1         1   M
+## 2  2         2   F
+## 3  3         1   M
+## 4  4         2   F
+## 5  5         2   M
+## 6  6         1   F
+</code></pre>
+
+<pre><code class="r">myDF$liz = list(&quot;1&quot;, &quot;2&quot;)
+tail(myDF, n = 3)
+</code></pre>
+
+<pre><code>##    ID condition Sex liz
+## 8   8         2   F   2
+## 9   9         1   M   1
+## 10 10         1   F   2
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>Data frames (indexing)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Largely similar to previously types</p>
+
+<pre><code class="r">myDF$ID
+</code></pre>
+
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre><code class="r">myDF[[2]]
+</code></pre>
+
+<pre><code>##  [1] 1 2 1 2 2 1 1 2 1 1
+</code></pre>
+
+<pre><code class="r">myDF[[&quot;Sex&quot;]]
+</code></pre>
+
+<pre><code>##  [1] M F M F M F M F M F
+## Levels: F M
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
+  <hgroup>
+    <h2>Convert</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>It is extremely useful to be able to move between different
+types</p></li>
+<li><p>For that, you can use the as.[type] functions</p></li>
+</ul>
+
+<p>as.numeric()</p>
+
+<p>as.matrix()</p>
+
+<p>as.list()</p>
+
+<p>as.data.frame()</p>
+
+<p>YOU SHOULD ALWAYS CHECK THE RESULT!!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-36" style="background:;">
+  <hgroup>
+    <h2>Working directory</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The folder that R operates</li>
+<li>If you want to refer to data outside that directory,
+you need to give the relative, or full path of the file.</li>
+</ul>
+
+<p>Key functions</p>
+
+<ul>
+<li>getwd()</li>
+<li>setwd()</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-37" style="background:;">
+  <hgroup>
+    <h2>Working directory</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">getwd()
+</code></pre>
+
+<pre><code>## [1] &quot;C:/Users/Krypo001/Dropbox/PostDocUU/eepR/lecture2&quot;
+</code></pre>
+
+<pre><code class="r">setwd(&quot;/Users/angelos-miltiadiskrypotos/Dropbox&quot;)
+</code></pre>
+
+<pre><code>## Error in setwd(&quot;/Users/angelos-miltiadiskrypotos/Dropbox&quot;): cannot change working directory
+</code></pre>
+
+<pre><code class="r">getwd()
+</code></pre>
+
+<pre><code>## [1] &quot;C:/Users/Krypo001/Dropbox/PostDocUU/eepR/lecture2&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-38" style="background:;">
+  <hgroup>
+    <h2>Packages</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Collection of functions with their help files</li>
+</ul>
+
+<pre><code class="r"># Install package
+install.packages(&quot;myAwesomePackageR&quot;)
+# Load package
+library(&quot;myAwesomePackageR&quot;)
+</code></pre>
+
+<p>Alternatively, use the &#39;packages&#39; tab (bottom right side) in R studio.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
+  <hgroup>
+    <h2>Working directory (why it is important)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>You can just store your data there and point
+to your directory</p></li>
+<li><p>Better not sure setwd() when using .Rnw files <a href="https://groups.google.com/forum/?fromgroups=#!topic/knitr/knM0VWoexT0">Yihui Xie on that</a></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
+  <hgroup>
+    <h2>Instructions on Assignment</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>All assignments can be found <a href="https://github.com/AngelosPsy/EPPR">here</a></li>
+<li>You can hand in your assignments by sending me an html document, with, when
+asked, runnable code.</li>
+<li>Note: make sure that you remove the &quot;eval = T&quot;, wherever you see it.</li>
+<li>Note: For writing text you should start each line with &quot;#&#39;&quot; (without the quotation)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='A few words about the course'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Goals of today&#39;s presentation'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Last time'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Help!'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Data types'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Basic operators'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Basic R data structures'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Vectors'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='The paste function'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Useful functions'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Vectors (Indexing)'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Vectors Indexing'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Matrix'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Matrix'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Matrix'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Matrix (indexing)'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Matrix (indexing)'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Matrix (indexing)'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='NA'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Useful functions'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Matrix (expansion)'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Matrix (expansion)'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='NA'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Factors'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Matrix (Some drawbacks)'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Lists'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Lists (example)'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Lists (indexing)'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Lists (indexing), Explain'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='Lists (indexing), Explain'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='Data frames'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='NA'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Data frames (indexing)'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Convert'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='Working directory'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Working directory'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='Packages'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Working directory (why it is important)'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='Instructions on Assignment'>
+         40
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
