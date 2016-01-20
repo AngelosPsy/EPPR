@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R for EPP</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R for EPP">
+  <meta name="author" content="Angelos Krypotos">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R for EPP</h1>
+    <h2>Load data, if else statements, loops</h2>
+    <p>Angelos Krypotos<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+  .title-slide {
+    background-color:  #E0E0E0; /*; ; #CA9F9D*/
+      /* background-image:url(http://goo.gl/EpXln); */
+  }
+</style>
+
+<style>
+.title-slide hgroup > h1, 
+.title-slide hgroup > h2 {
+  color: #660066 ;  /* ; #EF5150*/
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Goals of today&#39;s presentation</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Assignment 1 (Feedback)</p></li>
+<li><p>Load txt, xls, and sav files into R</p></li>
+<li><p>If else statments</p></li>
+<li><p>Loops (Part 1; only if we have time)</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Assignment 1</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>How was it?</p></li>
+<li><p>How much time did you spend?</p></li>
+<li><p>Were the questions clear enough?</p></li>
+<li><p>Format changes?</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Loading data</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>R can see the data in your directory</li>
+<li>You can, however, give the full path of
+a file </li>
+<li><strong>Best practice</strong> -&gt; Define data relative to your 
+<a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">R project</a></li>
+<li>You can load data from Rstudio with the `Import Dataset&#39; button</li>
+</ul>
+
+<pre><code class="r">getwd()
+setwd()
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Writing and loading txt files</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Write txt files</strong></p>
+
+<pre><code class="r">write.table(x = 1:10, &quot;example.txt&quot;, row.names = FALSE, quote = F)
+</code></pre>
+
+<p><strong>Load data -- 1st way</strong> </p>
+
+<pre><code class="r">read.table (&quot;example.txt&quot;, header = TRUE)
+</code></pre>
+
+<p><strong>Load data -- 2nd way</strong> </p>
+
+<pre><code class="r">library(readr)
+read_file(&quot;example.txt&quot;, delim = &quot;&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h3>Loading (.sav) SPSS files</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Write save files -- Not to do though</strong></p>
+
+<pre><code class="r">write.foreign(x, &quot;example.sav&quot;, codefile = &quot;example.sps&quot;, package = &quot;SPSS&quot;)
+</code></pre>
+
+<ul>
+<li>Most common way: read.spss in foreign -- But you may get <a href="http://stackoverflow.com/questions/7691739/warning-error-when-importing-a-sav">warnings</a>!</li>
+</ul>
+
+<pre><code class="r">library(foreign)
+read.spss(&quot;example.sav&quot;,  use.value.labels = FALSE, to.data.frame = TRUE)
+</code></pre>
+
+<ul>
+<li>Alternatively</li>
+</ul>
+
+<pre><code class="r">load(&#39;memisc&#39;)
+spss.data &lt;- as.data.set(spss.system.file(&quot;example.sav&quot;))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h3>Writing and loading csv files</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Write</strong></p>
+
+<pre><code class="r">write.csv (x, &quot;example.csv&quot;)
+</code></pre>
+
+<p><strong>Read</strong></p>
+
+<pre><code class="r">read.csv(&quot;example.csv&quot;)
+</code></pre>
+
+<p>Other functions: read.csv2, read.delim (in readr), read.delim2 (in readr)</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h3>Last thoughts</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li>Of course there are other types of data you can oad (e.g., stata data,
+HTML tables etc.)</li>
+<li>Whenever you load any data, CHECK CHECK CHECK that the data were
+loaded correctly</li>
+<li>Working directory mistakes are common, so do not freak out</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h3>If else statments</h3>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Conditional statements are common in many programming languages</li>
+<li>A good command of those statments will imporive your program</li>
+<li>Instances were conditiongal statments are useful:
+
+<ul>
+<li>Check which participants meet specific criterian (that reminds you of?)</li>
+<li>Transform data of participants that satify a specific condition</li>
+</ul></li>
+</ol>
+
+<hr>
+
+<h3>How does it work in R?</h3>
+
+<pre><code class="r">if (condition) {
+   expression
+}
+</code></pre>
+
+<pre><code class="r">hungry = TRUE
+if (hungry) {
+   print(&quot;Get something to eat dude!&quot;)
+}
+</code></pre>
+
+<pre><code>## [1] &quot;Get something to eat dude!&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h3>How does it work in R?</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">if (condition) {
+   expression
+} else {
+  alternative expression
+}
+</code></pre>
+
+<pre><code class="r">hungry = FALSE
+if (hungry) {
+   print(&quot;Get something to eat dude!&quot;)
+} else{
+  print(&quot;Time to party!&quot;)
+}
+</code></pre>
+
+<pre><code>## [1] &quot;Time to party!&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h3>How does it work in R?</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">if (condition) {
+   expression
+} else if (condition2) {
+   alternative expression
+} else
+   alternative expression 2
+</code></pre>
+
+<pre><code class="r">hungry = FALSE
+friends = FALSE
+if (hungry) {
+   print(&quot;Get something to eat dude!&quot;)
+} else if (friends){
+  print(&quot;Time to party!&quot;)
+} else {
+  print(&quot;Netflix and chill!&quot;)
+}
+</code></pre>
+
+<pre><code>## [1] &quot;Netflix and chill!&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h3>Some last thoughts</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>?ifelse()</li>
+<li>TEST TEST TEST the if else statments</li>
+<li>Curly brackets makes the code easier to read</li>
+<li>Of course booleans can take complicated forms (e.g., if THis &amp; THAT is TRUE)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h3>Loop statements</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>&#39;A sequence of instruction s that is continually repeated until a certain condition is reached&#39; <a href="http://whatis.techtarget.com/definition/loop">reference</a></li>
+<li>Avoid whenever possible (but that is not always possible)</li>
+<li>Whenever use, chose <em>implicit</em> over <em>explicit</em> looping</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h3>Explicit vs. Implicit looping</h3>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><strong>Explicit loops</strong></p>
+
+<pre><code class="r">my.matrix &lt;- matrix(1:10, 
+                    nrow = 2, ncol = 5)
+x &lt;- numeric()
+for (i in 1:ncol(my.matrix)){
+  x[i] &lt;- median(my.matrix[, i])
+}
+</code></pre>
+
+<ul>
+<li>Easy to learn and understand</li>
+<li>Easy to read</li>
+<li>Slow</li>
+<li>Ugly</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><strong>Implicit loops</strong></p>
+
+<pre><code class="r">my.matrix &lt;- matrix(1:10, 
+                    nrow = 2, ncol = 5)
+x &lt;- apply(my.matrix, 2, median)
+</code></pre>
+
+<ul>
+<li>Faster programs</li>
+<li>Shorter programs</li>
+<li>Points on geekiness</li>
+<li>Harder to learn</li>
+<li>Harder to understand</li>
+</ul>
+
+<p><a href="http://yihui.name/en/2010/10/on-the-gory-loops-in-r/">Wisdom from Yihui</a></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h3>Explicit looping</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>For loops</li>
+<li>While loops</li>
+<li>Repeat loops</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h3>For loops</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Idea</strong></p>
+
+<pre><code class="r">for (value in sequence){
+    DoSomething
+}
+</code></pre>
+
+<p><strong>Example</strong></p>
+
+<pre><code class="r">for (i in 1:10){
+  print(i)
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h3>For loops</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Example 2</strong></p>
+
+<pre><code class="r">my.matrix &lt;- matrix(1:10, 
+                    nrow = 2, ncol = 5)
+x &lt;- numeric()
+for (i in 1:ncol(my.matrix)){
+  x[i] &lt;- median(my.matrix[, i])
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h3>While loops</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Idea</strong></p>
+
+<pre><code class="r">while (somethingHolds){
+    DoSomething
+}
+</code></pre>
+
+<p><strong>Example</strong></p>
+
+<pre><code class="r">i = 1
+while (i &lt;= 10){
+  print(i)
+  i = i + 1
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h3>While loops</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Example 2</strong></p>
+
+<pre><code class="r">my.matrix &lt;- matrix(1:10, 
+                    nrow = 2, ncol = 5)
+x &lt;- numeric()
+i &lt;- 1
+while (i &lt; ncol (my.matrix)){
+  x[i] &lt;- median(my.matrix[, i])
+  i = i + 1
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h3>Repeat loops</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Idea</strong></p>
+
+<pre><code class="r">repeat{
+    DoSomething
+}
+</code></pre>
+
+<p><strong>Example</strong></p>
+
+<pre><code class="r">i &lt;- 1
+repeat{
+    print (i)
+    if(i &gt;= 10){
+      break
+    }
+  i = i + 1
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h3>Repeat loops</h3>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Example 2</strong></p>
+
+<pre><code class="r">my.matrix &lt;- matrix(1:10, 
+                    nrow = 2, ncol = 5)
+x &lt;- numeric()
+i &lt;- 1
+repeat{
+  x[i] &lt;- median(my.matrix[, i])
+  if (i &gt; ncol(my.matrix){
+    break
+  }
+  i = i + 1
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Instructions on Assignment</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>All assignments can be found <a href="https://github.com/AngelosPsy/EPPR/tree/master/Assignments">here</a></li>
+<li>You can hand in your assignments by sending me an html document, with, when
+asked, runnable code.</li>
+<li>Go as far as possible with the assignment. If you cannot complete it, no problem.</li>
+<li>I AM AVAILABLE FOR QUESTIONS!!!!!!</li>
+<li>Note: make sure that you remove the &quot;eval = T&quot;, wherever you see it.</li>
+<li>Note: For writing text you should start each line with &quot;#&#39;&quot; (without the quotation marks)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>The end</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Goals of today&#39;s presentation'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Assignment 1'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Loading data'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Writing and loading txt files'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Loading (.sav) SPSS files'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Writing and loading csv files'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Last thoughts'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='If else statments'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='How does it work in R?'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='How does it work in R?'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Some last thoughts'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Loop statements'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Explicit vs. Implicit looping'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Explicit looping'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='For loops'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='For loops'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='While loops'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='While loops'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Repeat loops'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Repeat loops'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Instructions on Assignment'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='The end'>
+         23
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
