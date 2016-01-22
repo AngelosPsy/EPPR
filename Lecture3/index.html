@@ -82,6 +82,21 @@
     <h2>Assignment 1</h2>
   </hgroup>
   <article data-timings="">
+    <ul class = "build incremental">
+<li><p>General rule: Trying is better than not doing it at all</p></li>
+<li><p>Building a feel about programming requires trial and error</p></li>
+<li><p>You can always ask me about the answers to the questions</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Assignment 1</h2>
+  </hgroup>
+  <article data-timings="">
     <ul>
 <li><p>How was it?</p></li>
 <li><p>How much time did you spend?</p></li>
@@ -93,7 +108,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-4" style="background:;">
+<slide class="" id="slide-5" style="background:;">
   <hgroup>
     <h2>Loading data</h2>
   </hgroup>
@@ -115,7 +130,7 @@ setwd()
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-5" style="background:;">
+<slide class="" id="slide-6" style="background:;">
   <hgroup>
     <h2>Writing and loading txt files</h2>
   </hgroup>
@@ -140,12 +155,12 @@ read_file(&quot;example.txt&quot;, delim = &quot;&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-7" style="background:;">
   <hgroup>
     <h3>Loading (.sav) SPSS files</h3>
   </hgroup>
   <article data-timings="">
-    <p><strong>Write save files -- Not to do though</strong></p>
+    <p><strong>Write sav files -- Better not do though</strong></p>
 
 <pre><code class="r">write.foreign(x, &quot;example.sav&quot;, codefile = &quot;example.sps&quot;, package = &quot;SPSS&quot;)
 </code></pre>
@@ -170,14 +185,14 @@ spss.data &lt;- as.data.set(spss.system.file(&quot;example.sav&quot;))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h3>Writing and loading csv files</h3>
   </hgroup>
   <article data-timings="">
     <p><strong>Write</strong></p>
 
-<pre><code class="r">write.csv (x, &quot;example.csv&quot;)
+<pre><code class="r">write.csv(x, &quot;example.csv&quot;)
 </code></pre>
 
 <p><strong>Read</strong></p>
@@ -191,7 +206,7 @@ spss.data &lt;- as.data.set(spss.system.file(&quot;example.sav&quot;))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h3>Last thoughts</h3>
   </hgroup>
@@ -208,23 +223,32 @@ loaded correctly</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h3>If else statments</h3>
   </hgroup>
   <article data-timings="">
-    <ol>
+    <ul>
 <li>Conditional statements are common in many programming languages</li>
 <li>A good command of those statments will imporive your program</li>
 <li>Instances were conditiongal statments are useful:
 
-<ul>
+<ol>
 <li>Check which participants meet specific criterian (that reminds you of?)</li>
 <li>Transform data of participants that satify a specific condition</li>
-</ul></li>
-</ol>
+</ol></li>
+</ul>
 
-<hr>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h3>So, let&#39;s get started!</h3>
+  </hgroup>
+  <article data-timings="">
+    <hr>
 
 <h3>How does it work in R?</h3>
 
@@ -246,7 +270,7 @@ if (hungry) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h3>How does it work in R?</h3>
   </hgroup>
@@ -273,7 +297,7 @@ if (hungry) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h3>How does it work in R?</h3>
   </hgroup>
@@ -283,7 +307,8 @@ if (hungry) {
 } else if (condition2) {
    alternative expression
 } else
-   alternative expression 2
+   alternative expression2
+}
 </code></pre>
 
 <pre><code class="r">hungry = FALSE
@@ -297,14 +322,11 @@ if (hungry) {
 }
 </code></pre>
 
-<pre><code>## [1] &quot;Netflix and chill!&quot;
-</code></pre>
-
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h3>Some last thoughts</h3>
   </hgroup>
@@ -320,7 +342,7 @@ if (hungry) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h3>Loop statements</h3>
   </hgroup>
@@ -335,7 +357,7 @@ if (hungry) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h3>Explicit vs. Implicit looping</h3>
   </hgroup>
@@ -383,7 +405,7 @@ x &lt;- apply(my.matrix, 2, median)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h3>Explicit looping</h3>
   </hgroup>
@@ -398,7 +420,7 @@ x &lt;- apply(my.matrix, 2, median)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h3>For loops</h3>
   </hgroup>
@@ -421,7 +443,7 @@ x &lt;- apply(my.matrix, 2, median)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h3>For loops</h3>
   </hgroup>
@@ -440,7 +462,7 @@ for (i in 1:ncol(my.matrix)){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h3>While loops</h3>
   </hgroup>
@@ -465,7 +487,7 @@ while (i &lt;= 10){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h3>While loops</h3>
   </hgroup>
@@ -486,7 +508,7 @@ while (i &lt; ncol (my.matrix)){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h3>Repeat loops</h3>
   </hgroup>
@@ -514,7 +536,7 @@ repeat{
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h3>Repeat loops</h3>
   </hgroup>
@@ -538,7 +560,7 @@ repeat{
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Instructions on Assignment</h2>
   </hgroup>
@@ -557,7 +579,7 @@ asked, runnable code.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>The end</h2>
   </hgroup>
@@ -591,122 +613,134 @@ asked, runnable code.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Loading data'>
+        data-slide=4 title='Assignment 1'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Writing and loading txt files'>
+        data-slide=5 title='Loading data'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Loading (.sav) SPSS files'>
+        data-slide=6 title='Writing and loading txt files'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Writing and loading csv files'>
+        data-slide=7 title='Loading (.sav) SPSS files'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Last thoughts'>
+        data-slide=8 title='Writing and loading csv files'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='If else statments'>
+        data-slide=9 title='Last thoughts'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='How does it work in R?'>
+        data-slide=10 title='If else statments'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='How does it work in R?'>
+        data-slide=11 title='So, let&#39;s get started!'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Some last thoughts'>
+        data-slide=12 title='How does it work in R?'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Loop statements'>
+        data-slide=13 title='How does it work in R?'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Explicit vs. Implicit looping'>
+        data-slide=14 title='Some last thoughts'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Explicit looping'>
+        data-slide=15 title='Loop statements'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='For loops'>
+        data-slide=16 title='Explicit vs. Implicit looping'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='For loops'>
+        data-slide=17 title='Explicit looping'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='While loops'>
+        data-slide=18 title='For loops'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='While loops'>
+        data-slide=19 title='For loops'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Repeat loops'>
+        data-slide=20 title='While loops'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Repeat loops'>
+        data-slide=21 title='While loops'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Instructions on Assignment'>
+        data-slide=22 title='Repeat loops'>
          22
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='The end'>
+        data-slide=23 title='Repeat loops'>
          23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Instructions on Assignment'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='The end'>
+         25
       </a>
     </li>
   </ul>

@@ -16,10 +16,19 @@
 #' Please write your answers below each question, indicating clearly to which question (or subquestion) your answer refers to.
 #' I would prefer if you would send your answers as an html document using "knitr" and with all the code having been already executed. 
 #' You can create html documents in R studio by just clicking the notepad icon on the top -- For more info how to create notebooks in R studio see 
-#' here [https://support.rstudio.com/hc/en-us/articles/200552276-Creating-Notebooks-from-R-Scripts]. If you want, you can also send
+#' [here](https://support.rstudio.com/hc/en-us/articles/200552276-Creating-Notebooks-from-R-Scripts). If you want, you can also send
 #' your answers as an .R script. Lastly, writing your assignments in .doc or .docx is also OK, but because of automatised formatting etc., it
 #' would be hard for me to check whether the code is running properly or not.
-#'  
+#'
+#' ## Goals of the assignment
+#' - Gain experience with exporting and importing data
+#' - Gain experience with loops
+#' - Gain experience with working with different directories.
+#' 
+#' *Note*. I did not include anything regarding if else statements. This was
+#' intentional as I think you already have enough on your plate. We will, however,
+#' have the chance to work with if else statements later on, especially when we
+#' talk about creating custom functions.
 #'
 #' ## Exercise 1
 #' Read the tutorial on loops from DataCamp [link](https://www.datacamp.com/community/tutorials/tutorial-on-loops-in-r), until

@@ -41,6 +41,16 @@ hitheme     : tomorrow
 ---
 ## Assignment 1
 
+> - General rule: Trying is better than not doing it at all
+
+> - Building a feel about programming requires trial and error
+
+> - You can always ask me about the answers to the questions
+
+
+---
+## Assignment 1
+
 - How was it?
 
 - How much time did you spend?
@@ -48,7 +58,6 @@ hitheme     : tomorrow
 - Were the questions clear enough?
 
 - Format changes?
-
 
 --- 
 ## Loading data
@@ -95,7 +104,7 @@ read_file("example.txt", delim = "")
 ---
 ### Loading (.sav) SPSS files
 
-**Write save files -- Not to do though**
+**Write sav files -- Better not do though**
 
 
 ```r
@@ -125,7 +134,7 @@ spss.data <- as.data.set(spss.system.file("example.sav"))
 
 
 ```r
-write.csv (x, "example.csv")
+write.csv(x, "example.csv")
 ```
 
 **Read**
@@ -146,14 +155,19 @@ HTML tables etc.)
 loaded correctly
 > - Working directory mistakes are common, so do not freak out
 
----
+----
+
 ### If else statments
 
-1. Conditional statements are common in many programming languages
-2. A good command of those statments will imporive your program
-3. Instances were conditiongal statments are useful:
-   * Check which participants meet specific criterian (that reminds you of?)
-   * Transform data of participants that satify a specific condition
+- Conditional statements are common in many programming languages
+- A good command of those statments will imporive your program
+- Instances were conditiongal statments are useful:
+   1. Check which participants meet specific criterian (that reminds you of?)
+   2. Transform data of participants that satify a specific condition
+
+
+---
+### So, let's get started!
    
 ---
 ### How does it work in R?
@@ -213,7 +227,8 @@ if (condition) {
 } else if (condition2) {
    alternative expression
 } else
-   alternative expression 2
+   alternative expression2
+}
 ```
 
 
@@ -227,10 +242,6 @@ if (hungry) {
 } else {
   print("Netflix and chill!")
 }
-```
-
-```
-## [1] "Netflix and chill!"
 ```
 
 ---
