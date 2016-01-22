@@ -85,7 +85,7 @@
     <ul class = "build incremental">
 <li><p>General rule: Trying is better than not doing it at all</p></li>
 <li><p>Building a feel about programming requires trial and error</p></li>
-<li><p>You can always ask me about the answers to the questions</p></li>
+<li><p>You can always ask me for the answers to the questions</p></li>
 </ul>
 
   </article>
@@ -212,7 +212,7 @@ spss.data &lt;- as.data.set(spss.system.file(&quot;example.sav&quot;))
   </hgroup>
   <article data-timings="">
     <ul class = "build incremental">
-<li>Of course there are other types of data you can oad (e.g., stata data,
+<li>Of course there are other types of data you can load (e.g., stata data,
 HTML tables etc.)</li>
 <li>Whenever you load any data, CHECK CHECK CHECK that the data were
 loaded correctly</li>
@@ -230,7 +230,7 @@ loaded correctly</li>
   <article data-timings="">
     <ul>
 <li>Conditional statements are common in many programming languages</li>
-<li>A good command of those statments will imporive your program</li>
+<li>A good command of those statements will improve your programming skills</li>
 <li>Instances were conditiongal statments are useful:
 
 <ol>
@@ -366,8 +366,7 @@ if (hungry) {
 <div style='float:left;width:48%;' class='centered'>
   <p><strong>Explicit loops</strong></p>
 
-<pre><code class="r">my.matrix &lt;- matrix(1:10, 
-                    nrow = 2, ncol = 5)
+<pre><code class="r">my.matrix &lt;- matrix(1:10, nrow = 2, ncol = 5)
 x &lt;- numeric()
 for (i in 1:ncol(my.matrix)){
   x[i] &lt;- median(my.matrix[, i])
@@ -385,8 +384,7 @@ for (i in 1:ncol(my.matrix)){
 <div style='float:right;width:48%;'>
   <p><strong>Implicit loops</strong></p>
 
-<pre><code class="r">my.matrix &lt;- matrix(1:10, 
-                    nrow = 2, ncol = 5)
+<pre><code class="r">my.matrix &lt;- matrix(1:10, nrow = 2, ncol = 5)
 x &lt;- apply(my.matrix, 2, median)
 </code></pre>
 

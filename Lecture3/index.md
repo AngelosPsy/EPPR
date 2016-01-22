@@ -45,7 +45,7 @@ hitheme     : tomorrow
 
 > - Building a feel about programming requires trial and error
 
-> - You can always ask me about the answers to the questions
+> - You can always ask me for the answers to the questions
 
 
 ---
@@ -149,7 +149,7 @@ Other functions: read.csv2, read.delim (in readr), read.delim2 (in readr)
 ---
 ### Last thoughts
 
-> - Of course there are other types of data you can oad (e.g., stata data,
+> - Of course there are other types of data you can load (e.g., stata data,
 HTML tables etc.)
 > - Whenever you load any data, CHECK CHECK CHECK that the data were
 loaded correctly
@@ -160,11 +160,10 @@ loaded correctly
 ### If else statments
 
 - Conditional statements are common in many programming languages
-- A good command of those statments will imporive your program
+- A good command of those statements will improve your programming skills
 - Instances were conditiongal statments are useful:
    1. Check which participants meet specific criterian (that reminds you of?)
    2. Transform data of participants that satify a specific condition
-
 
 ---
 ### So, let's get started!
@@ -266,8 +265,7 @@ if (hungry) {
 **Explicit loops**
 
 ```r
-my.matrix <- matrix(1:10, 
-                    nrow = 2, ncol = 5)
+my.matrix <- matrix(1:10, nrow = 2, ncol = 5)
 x <- numeric()
 for (i in 1:ncol(my.matrix)){
   x[i] <- median(my.matrix[, i])
@@ -282,8 +280,7 @@ for (i in 1:ncol(my.matrix)){
 **Implicit loops**
 
 ```r
-my.matrix <- matrix(1:10, 
-                    nrow = 2, ncol = 5)
+my.matrix <- matrix(1:10, nrow = 2, ncol = 5)
 x <- apply(my.matrix, 2, median)
 ```
 + Faster programs
