@@ -54,8 +54,8 @@ if (exists("x")){
 #' ## Answer 4
 #' 
 #+ eval = FALSE
-myCool.vector <- c(1, 43, 3, 1, 5)
-i.Like.Spiders <- c("Yes","No")
+my.cool.vector <- c(1, 43, 3, 1, 5)
+i.like.spiders <- c("Yes","No")
 x <- 1:50 
 if (exists("x")){
   something.stupid <- "something.stupid"
