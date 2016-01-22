@@ -828,26 +828,22 @@ and move from there on (see below)</li>
   <article data-timings="">
     <pre><code class="r">my.DF &lt;- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c(&quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;))
-head(my.DF)
+head(myDF)
 </code></pre>
 
-<pre><code>##   ID condition Sex
-## 1  1         1   M
-## 2  2         2   F
-## 3  3         1   M
-## 4  4         2   F
-## 5  5         2   M
-## 6  6         1   F
+<pre><code>## Error in head(myDF): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: Error: object &#39;myDF&#39; not found
 </code></pre>
 
-<pre><code class="r">my.DF$liz = list(&quot;1&quot;, &quot;2&quot;)
-tail(my.DF, n = 3)
+<pre><code class="r">myDF$liz = list(&quot;1&quot;, &quot;2&quot;)
 </code></pre>
 
-<pre><code>##    ID condition Sex liz
-## 8   8         2   F   2
-## 9   9         1   M   1
-## 10 10         1   F   2
+<pre><code>## Error in myDF$liz = list(&quot;1&quot;, &quot;2&quot;): object &#39;myDF&#39; not found
+</code></pre>
+
+<pre><code class="r">tail(myDF, n = 3)
+</code></pre>
+
+<pre><code>## Error in tail(myDF, n = 3): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;tail&#39;: Error: object &#39;myDF&#39; not found
 </code></pre>
 
   </article>
@@ -861,19 +857,19 @@ tail(my.DF, n = 3)
   <article data-timings="">
     <p>Largely similar to previously types</p>
 
-<pre><code class="r">my.DF$ID
+<pre><code class="r">myDF$ID
 </code></pre>
 
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
 </code></pre>
 
-<pre><code class="r">my.DF[[2]]
+<pre><code class="r">myDF[[2]]
 </code></pre>
 
 <pre><code>##  [1] 1 2 1 2 2 1 1 2 1 1
 </code></pre>
 
-<pre><code class="r">my.DF[[&quot;Sex&quot;]]
+<pre><code class="r">myDF[[&quot;Sex&quot;]]
 </code></pre>
 
 <pre><code>##  [1] M F M F M F M F M F

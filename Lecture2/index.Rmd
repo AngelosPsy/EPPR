@@ -421,9 +421,9 @@ and move from there on (see below)
 ```{r}
 my.DF <- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c("M", "F", "M", "F", "M", "F", "M", "F", "M", "F"))
-head(my.DF)
-my.DF$liz = list("1", "2")
-tail(my.DF, n = 3)
+head(myDF)
+myDF$liz = list("1", "2")
+tail(myDF, n = 3)
 ```
 
 ---
@@ -431,9 +431,9 @@ tail(my.DF, n = 3)
 Largely similar to previously types
 
 ```{r}
-my.DF$ID
-my.DF[[2]]
-my.DF[["Sex"]]
+myDF$ID
+myDF[[2]]
+myDF[["Sex"]]
 ```
 
 ---

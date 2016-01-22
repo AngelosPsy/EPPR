@@ -707,29 +707,27 @@ and move from there on (see below)
 ```r
 my.DF <- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c("M", "F", "M", "F", "M", "F", "M", "F", "M", "F"))
-head(my.DF)
+head(myDF)
 ```
 
 ```
-##   ID condition Sex
-## 1  1         1   M
-## 2  2         2   F
-## 3  3         1   M
-## 4  4         2   F
-## 5  5         2   M
-## 6  6         1   F
+## Error in head(myDF): error in evaluating the argument 'x' in selecting a method for function 'head': Error: object 'myDF' not found
 ```
 
 ```r
-my.DF$liz = list("1", "2")
-tail(my.DF, n = 3)
+myDF$liz = list("1", "2")
 ```
 
 ```
-##    ID condition Sex liz
-## 8   8         2   F   2
-## 9   9         1   M   1
-## 10 10         1   F   2
+## Error in myDF$liz = list("1", "2"): object 'myDF' not found
+```
+
+```r
+tail(myDF, n = 3)
+```
+
+```
+## Error in tail(myDF, n = 3): error in evaluating the argument 'x' in selecting a method for function 'tail': Error: object 'myDF' not found
 ```
 
 ---
@@ -738,7 +736,7 @@ Largely similar to previously types
 
 
 ```r
-my.DF$ID
+myDF$ID
 ```
 
 ```
@@ -746,7 +744,7 @@ my.DF$ID
 ```
 
 ```r
-my.DF[[2]]
+myDF[[2]]
 ```
 
 ```
@@ -754,7 +752,7 @@ my.DF[[2]]
 ```
 
 ```r
-my.DF[["Sex"]]
+myDF[["Sex"]]
 ```
 
 ```
