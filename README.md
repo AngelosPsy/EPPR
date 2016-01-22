@@ -19,4 +19,4 @@ dropbox links below:
 
 ## Keys
 
-* [Key for assignment 1] (https://www.dropbox.com/sh/qni57xc0ecetmse/AAAGBQEUp6mzz0-goEfXE4kFa?dl=0)
+* [Key to assignment 1] (https://www.dropbox.com/sh/qni57xc0ecetmse/AAAGBQEUp6mzz0-goEfXE4kFa?dl=0)
