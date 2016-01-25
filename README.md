@@ -20,3 +20,9 @@ dropbox links below:
 ## Keys
 
 * [Key to assignment 1] (https://www.dropbox.com/sh/qni57xc0ecetmse/AAAGBQEUp6mzz0-goEfXE4kFa?dl=0)
+
+## Hints
+
+Here are some hints to the assignments' solution.
+
+* [Hints to assignment 2] (https://www.dropbox.com/sh/p2cec39vdqfwtnn/AAAtKbLwoCJcqTc7lxSW1gR4a?dl=0)
