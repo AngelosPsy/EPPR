@@ -23,6 +23,6 @@ dropbox links below:
 
 ## Hints
 
-Here are some hints to the assignments' solution.
+Here are some hints to the assignments' solution. There will be no hints to assignment 1.
 
 * [Hints to assignment 2] (https://www.dropbox.com/sh/p2cec39vdqfwtnn/AAAtKbLwoCJcqTc7lxSW1gR4a?dl=0)
