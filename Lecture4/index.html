@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R for EPP</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R for EPP">
+  <meta name="author" content="Angelos Krypotos">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R for EPP</h1>
+    <h2>loops (part 2), plots (intro)</h2>
+    <p>Angelos Krypotos<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+  .title-slide {
+    background-color:  #8B4513; /*; ; #CA9F9D*/
+      /* background-image:url(http://goo.gl/EpXln); */
+  }
+</style>
+
+<style>
+.title-slide hgroup > h1, 
+.title-slide hgroup > h2 {
+  color: #F5F5F5 ;  /* ; #EF5150*/
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Goals of today&#39;s presentation</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Assignment 2 (Feedback)</p></li>
+<li><p>Implicit looping (good and bad)</p></li>
+<li><p>Introduction to plots</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Assignment 2</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Goals
+
+<ul>
+<li>Get you acquientent with (explicit) looping</li>
+<li>Show you how to write and import data</li>
+<li>Show you a general workflow for loading data</li>
+</ul></li>
+</ul>
+
+<ul class = "build incremental">
+<li>What did you think of the assignment?</li>
+<li>General difficulties?</li>
+<li>Did the hints help?</li>
+<li>Anything else we can add?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Explicit vs. Implicit looping</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>In general, loops should be avoided</li>
+<li>However, implicit looping better explicit looping</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h3>Loop statements</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>&#39;A sequence of instruction s that is continually repeated until a certain condition is reached&#39; <a href="http://whatis.techtarget.com/definition/loop">reference</a></li>
+<li>Avoid whenever possible (but that is not always possible)</li>
+<li>Whenever use, chose <em>implicit</em> over <em>explicit</em> looping</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h3>Explicit vs. Implicit looping</h3>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><strong>Explicit loops</strong></p>
+
+<ul>
+<li>+ Easy to learn and understand</li>
+<li>+ Easy to read</li>
+<li>+/- easy to creat</li>
+<li>- Slow</li>
+<li>- Ugly</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><strong>Implicit loops</strong></p>
+
+<ul>
+<li>+ Faster programs</li>
+<li>+ Shorter programs</li>
+<li>+ Points on geekiness</li>
+<li>- Harder to learn</li>
+<li>- Harder to remember</li>
+<li>- Harder to understand</li>
+</ul>
+
+<p><a href="http://yihui.name/en/2010/10/on-the-gory-loops-in-r/">Once again, Wisdom from Yihui</a></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h3><strong>apply</strong></h3>
+  </hgroup>
+  <article data-timings="">
+    <p>apply(x, margin, function, ...)</p>
+
+<p><strong>x</strong> = two dimension array </p>
+
+<p><strong>margin</strong> = a vector giving the subscripts which the function will be applied over. E.g., for a matrix 1 indicates rows, 2 indicates columns, c(1, 2) indicates rows and columns. Where X has named dimnames, it can be a character vector selecting dimension names.</p>
+
+<p><strong>Function</strong> = The function to be applied</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h3><strong>apply</strong> Example</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x = matrix(1:10, 5, 2)
+apply(x, 1, mean)
+</code></pre>
+
+<pre><code>## [1] 3.5 4.5 5.5 6.5 7.5
+</code></pre>
+
+<pre><code class="r">apply(x, 2, mean)
+</code></pre>
+
+<pre><code>## [1] 3 8
+</code></pre>
+
+<pre><code class="r">y = array(1:24, dim = c(2, 3, 4))
+apply(y, 3, mean)
+</code></pre>
+
+<pre><code>## [1]  3.5  9.5 15.5 21.5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h3><strong>tapply</strong></h3>
+  </hgroup>
+  <article data-timings="">
+    <p>tapply(x, index, function, ...)</p>
+
+<p>x = typically a numeric vector
+index = factor. If more than one factor, make a list
+function = function</p>
+
+<pre><code class="r">x = data.frame(ID = 1:10, RT = rnorm(10), Group = rep(1:2, 5), Pic = rep(c(&quot;Neg&quot;, &quot;Pos&quot;), each = 5))
+tapply(x$RT, list(x$Group, x$Pic), mean)
+</code></pre>
+
+<pre><code>##          Neg       Pos
+## 1  0.1801771 0.4367327
+## 2 -0.4743500 0.3864836
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h3><em>lapply</em></h3>
+  </hgroup>
+  <article data-timings="">
+    <p>lapply(x, function)</p>
+
+<p>x = list
+function = function</p>
+
+<pre><code class="r">x &lt;- list(ID = 1:10, RT = rnorm(10), Group = rep(1:2, 5))
+lapply(x, mean)
+</code></pre>
+
+<pre><code>## $ID
+## [1] 5.5
+## 
+## $RT
+## [1] 0.6226434
+## 
+## $Group
+## [1] 1.5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2><em>sapply</em></h2>
+  </hgroup>
+  <article data-timings="">
+    <p>sapply(x, function)</p>
+
+<p>x = list
+function = function</p>
+
+<pre><code class="r">x &lt;- list(ID = 1:10, RT = rnorm(10), Group = rep(1:2, 5))
+sapply(x, mean)
+</code></pre>
+
+<pre><code>##          ID          RT       Group 
+##  5.50000000 -0.07251578  1.50000000
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2><em>ddply</em></h2>
+  </hgroup>
+  <article data-timings="">
+    <p>ddply(.data, .variables, function)</p>
+
+<p>data = data.frame
+variables = variables to split data frame
+function = function to be applied</p>
+
+<pre><code class="r">library(plyr)
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;plyr&#39;
+</code></pre>
+
+<pre><code>## The following object is masked from &#39;package:twitteR&#39;:
+## 
+##     id
+</code></pre>
+
+<pre><code class="r">dfx &lt;- data.frame(
+group = c(rep(&#39;A&#39;, 8), rep(&#39;B&#39;, 15), 
+          rep(&#39;C&#39;, 6)),
+sex = sample(c(&quot;M&quot;, &quot;F&quot;), size = 29, replace = TRUE),
+age = runif(n = 29, min = 18, max = 54))
+ddply(dfx, .(group, sex), summarize,
+mean = round(mean(age), 2),
+sd = round(sd(age), 2))
+</code></pre>
+
+<pre><code>##   group sex  mean    sd
+## 1     A   F 40.19  9.78
+## 2     A   M 34.71 16.84
+## 3     B   F 39.81 10.27
+## 4     B   M 36.84 10.44
+## 5     C   F 36.73  7.09
+## 6     C   M 35.67 13.18
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Plots</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>R is quite powerful in terms of plots</li>
+<li><p>Plenty of packages for producting plots</p></li>
+<li><p><em>Packages</em></p></li>
+<li><p>base : The basic plots</p></li>
+<li><p>lattice : Enhancement of the base graphics</p></li>
+<li><p>ggplot2 : Modern way to do plots</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">y &lt;- 21:30
+y
+</code></pre>
+
+<pre><code>##  [1] 21 22 23 24 25 26 27 28 29 30
+</code></pre>
+
+<pre><code class="r">plot(x = 1:10, y = y)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">y &lt;- 1:10
+layout(t(1:3))
+plot(y)
+plot(y, type = &quot;l&quot;, col = &quot;red&quot;)
+plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-8"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Instructions on Assignment</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>All assignments can be found <a href="https://github.com/AngelosPsy/EPPR/tree/master/Assignments">here</a></li>
+<li>You can hand in your assignments by sending me an html document, with, when
+asked, runnable code.</li>
+<li>Go as far as possible with the assignment. If you cannot complete it, no problem.</li>
+<li>I AM AVAILABLE FOR QUESTIONS!!!!!!</li>
+<li>Note: make sure that you remove the &quot;eval = T&quot;, wherever you see it.</li>
+<li>Note: For writing text you should start each line with &quot;#&#39;&quot; (without the quotation marks)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>The end</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Goals of today&#39;s presentation'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Assignment 2'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Explicit vs. Implicit looping'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Loop statements'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Explicit vs. Implicit looping'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='<strong>apply</strong>'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='<strong>apply</strong> Example'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='<strong>tapply</strong>'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='<em>lapply</em>'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='<em>sapply</em>'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='<em>ddply</em>'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Plots'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='NA'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='NA'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Instructions on Assignment'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='The end'>
+         17
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
