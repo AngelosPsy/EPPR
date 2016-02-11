@@ -628,14 +628,6 @@ my.list
 ## Lists (indexing)
 
 ```r
-my.list[["myNums"]]
-```
-
-```
-## NULL
-```
-
-```r
 my.list[[1]]
 ```
 
@@ -705,29 +697,31 @@ and move from there on (see below)
 --- 
 
 ```r
-my.DF <- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
+my.df <- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c("M", "F", "M", "F", "M", "F", "M", "F", "M", "F"))
-head(myDF)
+head(my.df)
 ```
 
 ```
-## Error in head(myDF): error in evaluating the argument 'x' in selecting a method for function 'head': Error: object 'myDF' not found
-```
-
-```r
-myDF$liz = list("1", "2")
-```
-
-```
-## Error in myDF$liz = list("1", "2"): object 'myDF' not found
+##   ID condition Sex
+## 1  1         1   M
+## 2  2         2   F
+## 3  3         1   M
+## 4  4         2   F
+## 5  5         2   M
+## 6  6         1   F
 ```
 
 ```r
-tail(myDF, n = 3)
+my.df$liz = list("1", "2")
+tail(my.df, n = 3)
 ```
 
 ```
-## Error in tail(myDF, n = 3): error in evaluating the argument 'x' in selecting a method for function 'tail': Error: object 'myDF' not found
+##    ID condition Sex liz
+## 8   8         2   F   2
+## 9   9         1   M   1
+## 10 10         1   F   2
 ```
 
 ---
@@ -736,7 +730,7 @@ Largely similar to previously types
 
 
 ```r
-myDF$ID
+my.df$ID
 ```
 
 ```
@@ -744,7 +738,7 @@ myDF$ID
 ```
 
 ```r
-myDF[[2]]
+my.df[[2]]
 ```
 
 ```
@@ -752,7 +746,7 @@ myDF[[2]]
 ```
 
 ```r
-myDF[["Sex"]]
+my.df[["Sex"]]
 ```
 
 ```
