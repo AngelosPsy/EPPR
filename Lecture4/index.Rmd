@@ -88,7 +88,7 @@ hitheme     : tomorrow
 [Once again, Wisdom from Yihui](http://yihui.name/en/2010/10/on-the-gory-loops-in-r/)
 
 ---
-### **apply** 
+## **apply** 
 
 apply(x, margin, function, ...)
 
@@ -99,7 +99,7 @@ apply(x, margin, function, ...)
 **Function** = The function to be applied
 
 ---
-### **apply** Example
+## **apply** Example
 
 ```{r}
 x = matrix(1:10, 5, 2)
@@ -113,7 +113,7 @@ apply(y, 3, mean)
 ```
 
 ---
-### **tapply** 
+## **tapply** 
 
 tapply(x, index, function, ...)
 
@@ -127,7 +127,7 @@ tapply(x$RT, list(x$Group, x$Pic), mean)
 ```
 
 ---
-### *lapply*
+## *lapply*
 
 lapply(x, function)
 
@@ -181,7 +181,7 @@ sd = round(sd(age), 2))
 - Plenty of packages for producting plots
 
 - *Packages*
-- base : The basic plots
+- base : The basic plots (high level and low level functions)
 - lattice : Enhancement of the base graphics
 - ggplot2 : Modern way to do plots
 
@@ -202,6 +202,98 @@ plot(y)
 plot(y, type = "l", col = "red")
 plot(y, type = "b", col = "blue")
 ```
+
+---
+### par
+
+> Par is your friend!
+
+> ?par and you can see important arguments for changing your graphs.
+
+> Let's see some examples
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, y = y, col = 1:10)
+```
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, y = y, xaxt = "n", yaxt = "n")
+```
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, y = y, bty = "n")
+```
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, y = y, cex = 10)
+```
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, y = y, las = 1)
+```
+
+---&twocol
+
+***=left
+```{r fig.width=8, fig.height=5}
+barplot(1:10)
+```
+
+***=right
+```{r fig.width=8, fig.height=5}
+barplot(matrix(1:10, 5, 2), beside = T)
+```
+
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, y = y, pch = 1:10)
+```
+
+---
+## Low level functions
+
+> You can change your plot using low level functions 
+> Those should be used *after* you make the plot
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, y = y)
+mtext("I like trains", 3)
+```
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, y = y)
+text(2, 8, "I still like trains")
+```
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, y = y)
+legend(2, 8, legend = "dot -- what a surprise!", pch = 1)
+```
+
+---
+```{r fig.width=8, fig.height=5}
+plot(x = 1:10, axes = FALSE)
+axis(3)
+axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5))
+```
+
+---
+## ggplot
+
+> ggplot is the modern way to create plots
+> Although we are not extending here, please check [link](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+
+
+
 
 ---
 ## Instructions on Assignment
