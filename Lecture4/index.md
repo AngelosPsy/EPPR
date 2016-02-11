@@ -88,7 +88,7 @@ hitheme     : tomorrow
 [Once again, Wisdom from Yihui](http://yihui.name/en/2010/10/on-the-gory-loops-in-r/)
 
 ---
-### **apply** 
+## **apply** 
 
 apply(x, margin, function, ...)
 
@@ -99,7 +99,7 @@ apply(x, margin, function, ...)
 **Function** = The function to be applied
 
 ---
-### **apply** Example
+## **apply** Example
 
 
 ```r
@@ -130,7 +130,7 @@ apply(y, 3, mean)
 ```
 
 ---
-### **tapply** 
+## **tapply** 
 
 tapply(x, index, function, ...)
 
@@ -151,7 +151,7 @@ tapply(x$RT, list(x$Group, x$Pic), mean)
 ```
 
 ---
-### *lapply*
+## *lapply*
 
 lapply(x, function)
 
@@ -248,10 +248,9 @@ sd = round(sd(age), 2))
 - Plenty of packages for producting plots
 
 - *Packages*
-- base : The basic plots
+- base : The basic plots (high level and low level functions)
 - lattice : Enhancement of the base graphics
 - ggplot2 : Modern way to do plots
-
 
 ---
 
@@ -271,8 +270,6 @@ plot(x = 1:10, y = y)
 
 ![plot of chunk unnamed-chunk-7](assets/fig/unnamed-chunk-7-1.png)
 
-
-
 ---
 
 
@@ -285,6 +282,138 @@ plot(y, type = "b", col = "blue")
 ```
 
 ![plot of chunk unnamed-chunk-8](assets/fig/unnamed-chunk-8-1.png)
+
+---
+### par
+
+> Par is your friend!
+
+> ?par and you can see important arguments for changing your graphs.
+
+> Let's see some examples
+
+---
+
+```r
+plot(x = 1:10, y = y, col = 1:10)
+```
+
+![plot of chunk unnamed-chunk-9](assets/fig/unnamed-chunk-9-1.png)
+
+---
+
+```r
+plot(x = 1:10, y = y, xaxt = "n", yaxt = "n")
+```
+
+![plot of chunk unnamed-chunk-10](assets/fig/unnamed-chunk-10-1.png)
+
+---
+
+```r
+plot(x = 1:10, y = y, bty = "n")
+```
+
+![plot of chunk unnamed-chunk-11](assets/fig/unnamed-chunk-11-1.png)
+
+---
+
+```r
+plot(x = 1:10, y = y, cex = 10)
+```
+
+![plot of chunk unnamed-chunk-12](assets/fig/unnamed-chunk-12-1.png)
+
+---
+
+```r
+plot(x = 1:10, y = y, las = 1)
+```
+
+![plot of chunk unnamed-chunk-13](assets/fig/unnamed-chunk-13-1.png)
+
+---&twocol
+
+***=left
+
+```r
+barplot(1:10)
+```
+
+![plot of chunk unnamed-chunk-14](assets/fig/unnamed-chunk-14-1.png)
+
+***=right
+
+```r
+barplot(matrix(1:10, 5, 2), beside = T)
+```
+
+![plot of chunk unnamed-chunk-15](assets/fig/unnamed-chunk-15-1.png)
+
+
+---
+
+```r
+plot(x = 1:10, y = y, pch = 1:10)
+```
+
+![plot of chunk unnamed-chunk-16](assets/fig/unnamed-chunk-16-1.png)
+
+---
+## Low level functions
+
+> You can change your plot using low level functions 
+> Those should be used *after* you make the plot
+
+---
+
+```r
+plot(x = 1:10, y = y)
+mtext("I like trains", 3)
+```
+
+![plot of chunk unnamed-chunk-17](assets/fig/unnamed-chunk-17-1.png)
+
+---
+
+```r
+plot(x = 1:10, y = y)
+text(2, 8, "I still like trains")
+```
+
+![plot of chunk unnamed-chunk-18](assets/fig/unnamed-chunk-18-1.png)
+
+---
+
+```r
+plot(x = 1:10, y = y)
+legend(2, 8, legend = "dot -- what a surprise!", pch = 1)
+```
+
+![plot of chunk unnamed-chunk-19](assets/fig/unnamed-chunk-19-1.png)
+
+---
+
+```r
+plot(x = 1:10, axes = FALSE)
+axis(3)
+axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5))
+```
+
+```
+## Warning in axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5)): "legend" is
+## not a graphical parameter
+```
+
+![plot of chunk unnamed-chunk-20](assets/fig/unnamed-chunk-20-1.png)
+
+---
+## ggplot
+
+> ggplot is the modern way to create plots
+> Although we are not extending here, please check [link](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+
+
 
 
 ---
