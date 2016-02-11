@@ -376,7 +376,6 @@ my.list
 ---
 ## Lists (indexing)
 ``` {r }
-my.list[["myNums"]]
 my.list[[1]]
 my.list$my.Nums
 ```
@@ -419,11 +418,11 @@ and move from there on (see below)
 
 --- 
 ```{r}
-my.DF <- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
+my.df <- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c("M", "F", "M", "F", "M", "F", "M", "F", "M", "F"))
-head(myDF)
-myDF$liz = list("1", "2")
-tail(myDF, n = 3)
+head(my.df)
+my.df$liz = list("1", "2")
+tail(my.df, n = 3)
 ```
 
 ---
@@ -431,9 +430,9 @@ tail(myDF, n = 3)
 Largely similar to previously types
 
 ```{r}
-myDF$ID
-myDF[[2]]
-myDF[["Sex"]]
+my.df$ID
+my.df[[2]]
+my.df[["Sex"]]
 ```
 
 ---
