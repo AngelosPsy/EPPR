@@ -740,13 +740,7 @@ my.list
     <h2>Lists (indexing)</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">my.list[[&quot;myNums&quot;]]
-</code></pre>
-
-<pre><code>## NULL
-</code></pre>
-
-<pre><code class="r">my.list[[1]]
+    <pre><code class="r">my.list[[1]]
 </code></pre>
 
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
@@ -826,24 +820,28 @@ and move from there on (see below)</li>
 
 <slide class="" id="slide-32" style="background:;">
   <article data-timings="">
-    <pre><code class="r">my.DF &lt;- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
+    <pre><code class="r">my.df &lt;- data.frame(ID = 1:10, condition = c(1, 2, 1, 2, 2, 1, 1, 2, 1, 1), 
 Sex = c(&quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;))
-head(myDF)
+head(my.df)
 </code></pre>
 
-<pre><code>## Error in head(myDF): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: Error: object &#39;myDF&#39; not found
+<pre><code>##   ID condition Sex
+## 1  1         1   M
+## 2  2         2   F
+## 3  3         1   M
+## 4  4         2   F
+## 5  5         2   M
+## 6  6         1   F
 </code></pre>
 
-<pre><code class="r">myDF$liz = list(&quot;1&quot;, &quot;2&quot;)
+<pre><code class="r">my.df$liz = list(&quot;1&quot;, &quot;2&quot;)
+tail(my.df, n = 3)
 </code></pre>
 
-<pre><code>## Error in myDF$liz = list(&quot;1&quot;, &quot;2&quot;): object &#39;myDF&#39; not found
-</code></pre>
-
-<pre><code class="r">tail(myDF, n = 3)
-</code></pre>
-
-<pre><code>## Error in tail(myDF, n = 3): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;tail&#39;: Error: object &#39;myDF&#39; not found
+<pre><code>##    ID condition Sex liz
+## 8   8         2   F   2
+## 9   9         1   M   1
+## 10 10         1   F   2
 </code></pre>
 
   </article>
@@ -857,19 +855,19 @@ head(myDF)
   <article data-timings="">
     <p>Largely similar to previously types</p>
 
-<pre><code class="r">myDF$ID
+<pre><code class="r">my.df$ID
 </code></pre>
 
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
 </code></pre>
 
-<pre><code class="r">myDF[[2]]
+<pre><code class="r">my.df[[2]]
 </code></pre>
 
 <pre><code>##  [1] 1 2 1 2 2 1 1 2 1 1
 </code></pre>
 
-<pre><code class="r">myDF[[&quot;Sex&quot;]]
+<pre><code class="r">my.df[[&quot;Sex&quot;]]
 </code></pre>
 
 <pre><code>##  [1] M F M F M F M F M F
