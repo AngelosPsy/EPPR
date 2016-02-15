@@ -14,17 +14,18 @@ Check [here](https://github.com/AngelosPsy/EPPR/tree/master/Assignments).
 If you experience any problem downloading the assignments, please check the relevant
 dropbox links below:
 
-* [Assignment 1] (https://www.dropbox.com/sh/1blgxvlvml1voot/AAB-N2Dyd2Un3tDMIeEOkSDma?dl=0)
-* [Assignment 2] (https://www.dropbox.com/sh/puemzorw8m08ifv/AAD-OgzLdOpbt8vZiz2XB_2ua?dl=0)
+* [Assignment 1](https://www.dropbox.com/sh/1blgxvlvml1voot/AAB-N2Dyd2Un3tDMIeEOkSDma?dl=0)
+* [Assignment 2](https://www.dropbox.com/sh/puemzorw8m08ifv/AAD-OgzLdOpbt8vZiz2XB_2ua?dl=0)
+* [Assignment 3](https://www.dropbox.com/sh/fiuuqu98g730eu5/AAAvNxsx8eXqw-XkEFKNQ1xra?dl=0)
 
 ## Keys
 
-* [Key to assignment 1] (https://www.dropbox.com/sh/qni57xc0ecetmse/AAAGBQEUp6mzz0-goEfXE4kFa?dl=0)
-
+* [Key to assignment 1](https://www.dropbox.com/sh/qni57xc0ecetmse/AAAGBQEUp6mzz0-goEfXE4kFa?dl=0)
 * [Key to assignment 2](https://www.dropbox.com/sh/x0y69gg9sspky1f/AABAliE7D-0TYRU_tCwfZ3ana?dl=0)
 
 ## Hints
 
 Here are some hints to the assignments' solution. There will be no hints to assignment 1.
 
-* [Hints to assignment 2] (https://www.dropbox.com/sh/p2cec39vdqfwtnn/AAAtKbLwoCJcqTc7lxSW1gR4a?dl=0)
+* [Hints to assignment 2](https://www.dropbox.com/sh/p2cec39vdqfwtnn/AAAtKbLwoCJcqTc7lxSW1gR4a?dl=0)
+* [Hints to assignment 3](https://www.dropbox.com/sh/s0ck338wbe06jh9/AADIt20CNoYyhwScCFwNUA2na?dl=0)
