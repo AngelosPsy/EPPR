@@ -5,8 +5,17 @@ Please check the relevant [wiki](https://github.com/AngelosPsy/EPPR/wiki) for us
 about the course.
 
 ## Slides
-Check the lecture slides and notes [here](https://github.com/AngelosPsy/EPPR/wiki/Lectures). The source code is included
-  in the EEPR repository.
+* [Lecture 1](http://htmlpreview.github.io/?https://github.com/AngelosPsy/EPPR/blob/master/Lecture1/index.html)
+
+*NOTE*: I had to remove parts of the twitter code as it contained personal information. Apart from that,
+the rest of the code should work fine.
+
+The **example code** can be found [here](https://github.com/AngelosPsy/EPPR/tree/master/Lecture1) under the name "exampleScriptShare.R". The HTML result is under the name "exampleScriptShare.html". Be aware that if you want to run the code, you will generate 2000 csv files. If you want to generate a smaller number of samples (e.g., 20) change *1:2000* (see line 9 on the relevant script) to the number of sample you want (e.g., *1:20*).
+
+* [Lecture 2](http://htmlpreview.github.io/?https://github.com/AngelosPsy/EPPR/blob/master/Lecture2/index.html)
+* [Lecture 3](http://htmlpreview.github.io/?https://github.com/AngelosPsy/EPPR/blob/master/Lecture3/index.html)
+* [Lecture 4](http://htmlpreview.github.io/?https://github.com/AngelosPsy/EPPR/blob/master/Lecture4/index.html)  
+  
   
 ## Assignments
 Check [here](https://github.com/AngelosPsy/EPPR/tree/master/Assignments).
