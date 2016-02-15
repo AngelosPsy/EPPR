@@ -40,7 +40,7 @@ hitheme     : tomorrow
 ## Assignment 2
 
 - Goals
-  - Get you acquientent with (explicit) looping
+  - Get you know how to work with (explicit) looping
   - Show you how to write and import data
   - Show you a general workflow for loading data
 
@@ -350,7 +350,6 @@ barplot(matrix(1:10, 5, 2), beside = T)
 
 ![plot of chunk unnamed-chunk-15](assets/fig/unnamed-chunk-15-1.png)
 
-
 ---
 
 ```r
@@ -406,6 +405,28 @@ axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5))
 ```
 
 ![plot of chunk unnamed-chunk-20](assets/fig/unnamed-chunk-20-1.png)
+
+---
+
+```r
+plot(x = 1:10, y = y)
+points(c(5, 6))
+lines(c(8, 10), c(7, 9))
+```
+
+![plot of chunk unnamed-chunk-21](assets/fig/unnamed-chunk-21-1.png)
+
+---
+## Saving plots
+
+You need to create -- and close -- a new device
+
+> pdf
+> jpg
+> png
+> postscript
+
+You close the device with dev.off()
 
 ---
 ## ggplot
