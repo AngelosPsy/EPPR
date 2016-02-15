@@ -4,6 +4,20 @@ Here you can find all the slideshows, assignments, and notes for the course 'R f
 Please check the relevant [wiki](https://github.com/AngelosPsy/EPPR/wiki) for useful information
 about the course.
 
+## Timetable
+
+| Lecture | Date           | Time              | Room | Topic(s)                                         |
+|---------|----------------|-------------------|------|--------------------------------------------------|
+| 1       |  19/11/2015    |  12:00 -- 14:00   | E124 |A tiny introduction                               |
+| 2       |  08/01/2015    |  15:00 -- 17:00   | E124 |1) Objects, 2) Indexing, 3) Directories           | 
+| 3       |  22/01/2016    |  15:00 -- 17:00   | E120 |1) Loading Data (e.g., xls, sav), 2) If else statements, 3) Loops        |
+| 4       |  ~~05/02/2016~~   19/02/2016 |  15:00 -- 17:00   | ~~E124~~ E120 |Introduction to plots                             |  
+| 5       |  ~~19/02/2016~~    11/03/2016|  15:00 -- 17:00   | ~~E120~~ E124 |1) Advanced Plots 2) Functions                     |	
+| 6       |  ~~11/03/2016~~  25/03/2016  |  15:00 -- 17:00   | ~~E124~~ H112|Statistical Analyses with R (t.tests, ANOVAs, GLM)|
+
+Note: You do not have to bring your laptop along. You will
+have the chance to work with R during the housework.
+
 ## Slides
 * [Lecture 1](http://htmlpreview.github.io/?https://github.com/AngelosPsy/EPPR/blob/master/Lecture1/index.html)
 
