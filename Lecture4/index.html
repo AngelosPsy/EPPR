@@ -221,9 +221,11 @@ apply(y, 3, mean)
   <article data-timings="">
     <p>tapply(x, index, function, ...)</p>
 
-<p>x = typically a numeric vector
-index = factor. If more than one factor, make a list
-function = function</p>
+<p><strong>x</strong> = typically a numeric vector</p>
+
+<p><strong>index</strong> = factor. If more than one factor, make a list</p>
+
+<p><strong>function</strong> = function</p>
 
 <pre><code class="r">x = data.frame(ID = 1:10, RT = rnorm(10), Group = rep(1:2, 5), Pic = rep(c(&quot;Neg&quot;, &quot;Pos&quot;), each = 5))
 tapply(x$RT, list(x$Group, x$Pic), mean)
@@ -245,8 +247,9 @@ tapply(x$RT, list(x$Group, x$Pic), mean)
   <article data-timings="">
     <p>lapply(x, function)</p>
 
-<p>x = list
-function = function</p>
+<p><strong>x</strong> = list</p>
+
+<p><strong>function</strong> = function</p>
 
 <pre><code class="r">x &lt;- list(ID = 1:10, RT = rnorm(10), Group = rep(1:2, 5))
 lapply(x, mean)
@@ -273,8 +276,9 @@ lapply(x, mean)
   <article data-timings="">
     <p>sapply(x, function)</p>
 
-<p>x = list
-function = function</p>
+<p><strong>x</strong> = list</p>
+
+<p><strong>function</strong> = function</p>
 
 <pre><code class="r">x &lt;- list(ID = 1:10, RT = rnorm(10), Group = rep(1:2, 5))
 sapply(x, mean)
@@ -288,18 +292,29 @@ sapply(x, mean)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="smallcode" id="slide-12" style="background:;">
   <hgroup>
     <h2><em>ddply</em></h2>
   </hgroup>
   <article data-timings="">
     <p>ddply(.data, .variables, function)</p>
 
-<p>data = data.frame
-variables = variables to split data frame
-function = function to be applied</p>
+<p><strong>data</strong> = data.frame</p>
 
-<pre><code class="r">library(plyr)
+<p><strong>variables</strong> = variables to split data frame</p>
+
+<p><strong>function</strong> = function to be applied</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="smallcode" id="slide-13" style="background:;">
+  <hgroup>
+    <h2><em>ddply</em> (Example)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(plyr)
 </code></pre>
 
 <pre><code>## 
@@ -334,7 +349,7 @@ sd = round(sd(age), 2))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Plots</h2>
   </hgroup>
@@ -352,7 +367,7 @@ sd = round(sd(age), 2))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <article data-timings="">
     <pre><code class="r">y &lt;- 21:30
 y
@@ -370,7 +385,7 @@ y
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <article data-timings="">
     <pre><code class="r">y &lt;- 1:10
 layout(t(1:3))
@@ -385,7 +400,7 @@ plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h3>par</h3>
   </hgroup>
@@ -402,7 +417,7 @@ plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y, col = 1:10)
 </code></pre>
@@ -413,7 +428,7 @@ plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y, xaxt = &quot;n&quot;, yaxt = &quot;n&quot;)
 </code></pre>
@@ -424,7 +439,7 @@ plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y, bty = &quot;n&quot;)
 </code></pre>
@@ -435,7 +450,7 @@ plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y, cex = 10)
 </code></pre>
@@ -446,7 +461,7 @@ plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y, las = 1)
 </code></pre>
@@ -457,7 +472,7 @@ plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <article data-timings="">
     
 <div style='float:left;width:48%;' class='centered'>
@@ -478,7 +493,7 @@ plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y, pch = 1:10)
 </code></pre>
@@ -489,7 +504,7 @@ plot(y, type = &quot;b&quot;, col = &quot;blue&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Low level functions</h2>
   </hgroup>
@@ -503,7 +518,7 @@ Those should be used <em>after</em> you make the plot</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y)
 mtext(&quot;I like trains&quot;, 3)
@@ -515,7 +530,7 @@ mtext(&quot;I like trains&quot;, 3)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y)
 text(2, 8, &quot;I still like trains&quot;)
@@ -527,7 +542,7 @@ text(2, 8, &quot;I still like trains&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y)
 legend(2, 8, legend = &quot;dot -- what a surprise!&quot;, pch = 1)
@@ -539,15 +554,11 @@ legend(2, 8, legend = &quot;dot -- what a surprise!&quot;, pch = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, axes = FALSE)
 axis(3)
-axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5))
-</code></pre>
-
-<pre><code>## Warning in axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5)): &quot;legend&quot; is
-## not a graphical parameter
+axis(4, at = seq(0, 10, 5), labels = seq(0, 10, 5))
 </code></pre>
 
 <p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-20"></p>
@@ -556,7 +567,7 @@ axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <article data-timings="">
     <pre><code class="r">plot(x = 1:10, y = y)
 points(c(5, 6))
@@ -569,7 +580,7 @@ lines(c(8, 10), c(7, 9))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Saving plots</h2>
   </hgroup>
@@ -589,7 +600,7 @@ postscript</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>ggplot</h2>
   </hgroup>
@@ -603,7 +614,7 @@ Although we are not extending here, please check <a href="https://www.rstudio.co
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Instructions on Assignment</h2>
   </hgroup>
@@ -622,7 +633,7 @@ asked, runnable code.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>The end</h2>
   </hgroup>
@@ -710,13 +721,13 @@ asked, runnable code.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Plots'>
+        data-slide=13 title='<em>ddply</em> (Example)'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='NA'>
+        data-slide=14 title='Plots'>
          14
       </a>
     </li>
@@ -728,13 +739,13 @@ asked, runnable code.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='par'>
+        data-slide=16 title='NA'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='NA'>
+        data-slide=17 title='par'>
          17
       </a>
     </li>
@@ -776,13 +787,13 @@ asked, runnable code.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='Low level functions'>
+        data-slide=24 title='NA'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='NA'>
+        data-slide=25 title='Low level functions'>
          25
       </a>
     </li>
@@ -812,26 +823,32 @@ asked, runnable code.</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='Saving plots'>
+        data-slide=30 title='NA'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='ggplot'>
+        data-slide=31 title='Saving plots'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Instructions on Assignment'>
+        data-slide=32 title='ggplot'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='The end'>
+        data-slide=33 title='Instructions on Assignment'>
          33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='The end'>
+         34
       </a>
     </li>
   </ul>

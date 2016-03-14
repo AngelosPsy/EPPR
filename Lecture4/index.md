@@ -134,9 +134,11 @@ apply(y, 3, mean)
 
 tapply(x, index, function, ...)
 
-x = typically a numeric vector
-index = factor. If more than one factor, make a list
-function = function
+**x** = typically a numeric vector
+
+**index** = factor. If more than one factor, make a list
+
+**function** = function
 
 
 ```r
@@ -155,8 +157,9 @@ tapply(x$RT, list(x$Group, x$Pic), mean)
 
 lapply(x, function)
 
-x = list
-function = function
+**x** = list
+
+**function** = function
 
 
 ```r
@@ -180,8 +183,9 @@ lapply(x, mean)
 
 sapply(x, function)
 
-x = list
-function = function
+**x** = list
+
+**function** = function
 
 
 ```r
@@ -194,15 +198,19 @@ sapply(x, mean)
 ##  5.50000000 -0.07251578  1.50000000
 ```
 
----
+--- .smallcode
 ## *ddply*
 
 ddply(.data, .variables, function)
 
-data = data.frame
-variables = variables to split data frame
-function = function to be applied
+**data** = data.frame
 
+**variables** = variables to split data frame
+
+**function** = function to be applied
+
+--- .smallcode
+## *ddply* (Example)
 
 
 ```r
@@ -396,12 +404,7 @@ legend(2, 8, legend = "dot -- what a surprise!", pch = 1)
 ```r
 plot(x = 1:10, axes = FALSE)
 axis(3)
-axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5))
-```
-
-```
-## Warning in axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5)): "legend" is
-## not a graphical parameter
+axis(4, at = seq(0, 10, 5), labels = seq(0, 10, 5))
 ```
 
 ![plot of chunk unnamed-chunk-20](assets/fig/unnamed-chunk-20-1.png)

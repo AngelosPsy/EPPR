@@ -117,9 +117,11 @@ apply(y, 3, mean)
 
 tapply(x, index, function, ...)
 
-x = typically a numeric vector
-index = factor. If more than one factor, make a list
-function = function
+**x** = typically a numeric vector
+
+**index** = factor. If more than one factor, make a list
+
+**function** = function
 
 ```{r}
 x = data.frame(ID = 1:10, RT = rnorm(10), Group = rep(1:2, 5), Pic = rep(c("Neg", "Pos"), each = 5))
@@ -131,8 +133,9 @@ tapply(x$RT, list(x$Group, x$Pic), mean)
 
 lapply(x, function)
 
-x = list
-function = function
+**x** = list
+
+**function** = function
 
 ```{r}
 x <- list(ID = 1:10, RT = rnorm(10), Group = rep(1:2, 5))
@@ -144,23 +147,28 @@ lapply(x, mean)
 
 sapply(x, function)
 
-x = list
-function = function
+**x** = list
+
+**function** = function
 
 ```{r}
 x <- list(ID = 1:10, RT = rnorm(10), Group = rep(1:2, 5))
 sapply(x, mean)
 ```
 
----
+--- .smallcode
 ## *ddply*
 
 ddply(.data, .variables, function)
 
-data = data.frame
-variables = variables to split data frame
-function = function to be applied
+**data** = data.frame
 
+**variables** = variables to split data frame
+
+**function** = function to be applied
+
+--- .smallcode
+## *ddply* (Example)
 
 ```{r}
 library(plyr)
@@ -282,7 +290,7 @@ legend(2, 8, legend = "dot -- what a surprise!", pch = 1)
 ```{r fig.width=8, fig.height=5}
 plot(x = 1:10, axes = FALSE)
 axis(3)
-axis(4, at = seq(0, 10, 5), legend = seq(0, 10, 5))
+axis(4, at = seq(0, 10, 5), labels = seq(0, 10, 5))
 ```
 
 ---
