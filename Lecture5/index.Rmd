@@ -1,0 +1,267 @@
+---
+title: "R for EPP"
+author: "Angelos Krypotos"
+knit: slidify::knit2slides
+mode: standalone
+job: null
+subtitle: Statistical Analyses with R
+framework: io2012
+widgets     : [mathjax angularjs]  
+highlighter : highlight.js
+hitheme     : tomorrow 
+---
+
+pre {
+  font-size: 5px;
+}
+
+slide.smallcode pre {
+  font-size: 5px;
+}
+
+<style>
+  .title-slide {
+    background-color:  #808080; /*; ; #CA9F9D*/
+      /* background-image:url(http://goo.gl/EpXln); */
+  }
+</style>
+
+
+<style>
+.title-slide hgroup > h1, 
+.title-slide hgroup > h2 {
+  color: #F5F5F5 ;  /* ; #EF5150*/
+}
+</style>
+
+
+
+--- 
+## Goals of today's presentation
+
+- Assignment 3 (Feedback)
+
+- Analyses with R
+
+- Decide next lecture
+
+---
+## Assignment 2
+
+- Any comments?
+
+---
+## Basic descriptives
+
+```{r}
+library(psych, quietly = TRUE) # Load psych library
+data(galton) # Load galton data
+head(galton, n = 2) # Head of data
+describe(galton) # Basic descriptives
+```
+
+---
+## Correlations
+
+```{r}
+pairs.panels(galton, main="Galton's Parent child heights")  
+
+```
+
+---
+## Correlations
+
+```{r}
+cor(galton$parent, galton$child)
+cor.test(galton$parent, galton$child)
+```
+
+---
+## Linear regression (1)
+
+lm(DV~IV1)
+
+```{r}
+data(affect)
+res <- lm(state1~state2, data = affect)
+summary(res)
+## Also run plot(res)
+```
+
+---
+
+lm(DV~IV1+IV2): Only main effects
+
+
+```{r}
+res <- lm(state1~state2+NA2, data = affect)
+summary(res)
+```
+
+
+---
+
+lm(DV~IV1:IV2): Only interaction(s)
+
+```{r}
+res <- lm(state1~state2:NA2, data = affect)
+summary(res)
+```
+
+
+---
+lm(DV~IV1*IV2): All single effects and interaction(s)
+
+```{r}
+res <- lm(state1~state2*NA2, data = affect)
+summary(res)
+```
+
+---
+# t.tests
+First, boxplots
+```{r}
+boxplot(neur~Study, data = affect)
+```
+
+---
+# t.tests (Indepedent samples)
+
+```{r}
+t.test(neur~Study, data = affect)
+```
+
+---
+# t.tests (Dependent samples)
+
+```{r}
+t.test(affect$PA1, affect$NA1, paired = TRUE)
+```
+
+---
+# ANOVA
+
+Multiple ways to do so
+
+The _ez_ package is a good way to do ANOVAS easily
+
+---
+# ANOVA
+
+```{r}
+library(ez, quietly = TRUE)
+data("ANT")
+head(ANT, n = 3)
+```
+
+---
+# ANOVA
+
+```{r}
+res <- ezANOVA(              ### The function
+data = ANT[ANT$error==0,],    ### The data to be used
+dv = rt,                   ### The dependent variable
+wid = subnum,              ### The subject factor
+within = .(cue,flank),     ### Within subject variable
+between = group,           ### group variablew
+type = 3                    ### Ensure that results are comparable to SPSS results
+)
+```
+
+
+---
+# ANOVA
+
+```{r}
+res$ANOVA
+```
+
+
+---
+# ANOVA
+
+```{r}
+res$`Mauchly's Test for Sphericity`
+```
+
+---
+# ANOVA
+
+```{r}
+res$`Sphericity Corrections`
+```
+
+
+---
+# BAYES WILL TEAR US APART
+
+- rbugs (R and WinBugs)
+
+
+- rjags (R and JAGS)
+
+- Rstan (R and STAN)
+
+---
+# BayesFactor
+
+The BayesFactor package allows the easy computation of Bayes
+factors for common statistical designs
+
+BayesFactor is not suitable for parameter estimation
+
+This [webpage](http://bayesfactorpcl.r-forge.r-project.org/) is absolutely amazing for further info 
+
+---
+## Bayesian t-test
+
+```{r}
+data(affect)
+library(BayesFactor)
+res = ttestBF(affect$neur[affect$Study == "maps"], affect$neur[affect$Study == "maps"], rscale = .707)
+```
+
+---
+## Bayesian t-test
+
+```{r}
+res
+1/res
+```
+
+---
+## Bayesian regression
+
+```{r}
+lmBF(ext~Study, data = affect)
+```
+
+---
+## Bayesian ANOVA
+
+```{r}
+res <- anovaBF(rt ~ cue *  group + subnum, whichRandom = "subnum",
+  data = ANT, progress = FALSE)
+```
+
+---
+## Bayesian ANOVA
+
+```{r}
+res
+```
+
+---
+## Instructions on Assignment
+
+- All assignments can be found [here](https://github.com/AngelosPsy/EPPR/tree/master/Assignments)
+- You can hand in your assignments by sending me an html document, with, when
+asked, runnable code.
+- Go as far as possible with the assignment. If you cannot complete it, no problem.
+- I AM AVAILABLE FOR QUESTIONS!!!!!!
+- Note: make sure that you remove the "eval = T", wherever you see it.
+- Note: For writing text you should start each line with "#'" (without the quotation marks)
+
+---
+
+## The end

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R for EPP</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R for EPP">
+  <meta name="author" content="Angelos Krypotos">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R for EPP</h1>
+    <h2>Statistical Analyses with R</h2>
+    <p>Angelos Krypotos<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <p>pre {
+  font-size: 5px;
+}</p>
+
+<p>slide.smallcode pre {
+  font-size: 5px;
+}</p>
+
+<style>
+  .title-slide {
+    background-color:  #808080; /*; ; #CA9F9D*/
+      /* background-image:url(http://goo.gl/EpXln); */
+  }
+</style>
+
+<style>
+.title-slide hgroup > h1, 
+.title-slide hgroup > h2 {
+  color: #F5F5F5 ;  /* ; #EF5150*/
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Goals of today&#39;s presentation</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Assignment 3 (Feedback)</p></li>
+<li><p>Analyses with R</p></li>
+<li><p>Decide next lecture</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Assignment 2</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Any comments?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Basic descriptives</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(psych, quietly = TRUE) # Load psych library
+data(galton) # Load galton data
+head(galton, n = 2) # Head of data
+</code></pre>
+
+<pre><code>##   parent child
+## 1   70.5  61.7
+## 2   68.5  61.7
+</code></pre>
+
+<pre><code class="r">describe(galton) # Basic descriptives
+</code></pre>
+
+<pre><code>##        vars   n  mean   sd median trimmed  mad  min  max range  skew
+## parent    1 928 68.31 1.79   68.5   68.32 1.48 64.0 73.0     9 -0.04
+## child     2 928 68.09 2.52   68.2   68.12 2.97 61.7 73.7    12 -0.09
+##        kurtosis   se
+## parent     0.05 0.06
+## child     -0.35 0.08
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Correlations</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">pairs.panels(galton, main=&quot;Galton&#39;s Parent child heights&quot;)  
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-2"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Correlations</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">cor(galton$parent, galton$child)
+</code></pre>
+
+<pre><code>## [1] 0.4587624
+</code></pre>
+
+<pre><code class="r">cor.test(galton$parent, galton$child)
+</code></pre>
+
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  galton$parent and galton$child
+## t = 15.711, df = 926, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.4064067 0.5081153
+## sample estimates:
+##       cor 
+## 0.4587624
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Linear regression (1)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>lm(DV~IV1)</p>
+
+<pre><code class="r">data(affect)
+res &lt;- lm(state1~state2, data = affect)
+summary(res)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = state1 ~ state2, data = affect)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -29.003  -5.248  -0.419   4.588  40.947 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  20.9848     2.6402   7.948 2.62e-13 ***
+## state2        0.4851     0.0603   8.045 1.48e-13 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.433 on 168 degrees of freedom
+##   (160 observations deleted due to missingness)
+## Multiple R-squared:  0.2781, Adjusted R-squared:  0.2738 
+## F-statistic: 64.73 on 1 and 168 DF,  p-value: 1.482e-13
+</code></pre>
+
+<pre><code class="r">## Also run plot(res)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <article data-timings="">
+    <p>lm(DV~IV1+IV2): Only main effects</p>
+
+<pre><code class="r">res &lt;- lm(state1~state2+NA2, data = affect)
+summary(res)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = state1 ~ state2 + NA2, data = affect)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -28.094  -5.025  -0.579   3.749  43.040 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 18.18405    3.12207   5.824 2.87e-08 ***
+## state2       0.58255    0.08394   6.940 8.25e-11 ***
+## NA2         -0.30255    0.18233  -1.659   0.0989 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.389 on 167 degrees of freedom
+##   (160 observations deleted due to missingness)
+## Multiple R-squared:  0.2898, Adjusted R-squared:  0.2813 
+## F-statistic: 34.08 on 2 and 167 DF,  p-value: 3.876e-13
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <article data-timings="">
+    <p>lm(DV~IV1:IV2): Only interaction(s)</p>
+
+<pre><code class="r">res &lt;- lm(state1~state2:NA2, data = affect)
+summary(res)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = state1 ~ state2:NA2, data = affect)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -25.639  -6.445  -0.933   5.784  34.647 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 39.216167   0.915362  42.842  &lt; 2e-16 ***
+## state2:NA2   0.010528   0.002496   4.217 4.03e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.438 on 168 degrees of freedom
+##   (160 observations deleted due to missingness)
+## Multiple R-squared:  0.09573,    Adjusted R-squared:  0.09035 
+## F-statistic: 17.79 on 1 and 168 DF,  p-value: 4.034e-05
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <article data-timings="">
+    <p>lm(DV~IV1*IV2): All single effects and interaction(s)</p>
+
+<pre><code class="r">res &lt;- lm(state1~state2*NA2, data = affect)
+summary(res)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = state1 ~ state2 * NA2, data = affect)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -26.013  -5.195  -0.692   3.553  41.302 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 15.80457    3.58092   4.414 1.82e-05 ***
+## state2       0.63637    0.09278   6.859 1.31e-10 ***
+## NA2          0.51893    0.63662   0.815    0.416    
+## state2:NA2  -0.01573    0.01168  -1.346    0.180    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.369 on 166 degrees of freedom
+##   (160 observations deleted due to missingness)
+## Multiple R-squared:  0.2975, Adjusted R-squared:  0.2848 
+## F-statistic: 23.43 on 3 and 166 DF,  p-value: 1.066e-12
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h1>t.tests</h1>
+  </hgroup>
+  <article data-timings="">
+    <p>First, boxplots</p>
+
+<pre><code class="r">boxplot(neur~Study, data = affect)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-8"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h1>t.tests (Indepedent samples)</h1>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">t.test(neur~Study, data = affect)
+</code></pre>
+
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  neur by Study
+## t = -0.14477, df = 327.39, p-value = 0.885
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -1.171356  1.010768
+## sample estimates:
+## mean in group maps mean in group flat 
+##           10.17500           10.25529
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h1>t.tests (Dependent samples)</h1>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">t.test(affect$PA1, affect$NA1, paired = TRUE)
+</code></pre>
+
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  affect$PA1 and affect$NA1
+## t = 11.723, df = 329, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  4.322896 6.066194
+## sample estimates:
+## mean of the differences 
+##                5.194545
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h1>ANOVA</h1>
+  </hgroup>
+  <article data-timings="">
+    <p>Multiple ways to do so</p>
+
+<p>The <em>ez</em> package is a good way to do ANOVAS easily</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h1>ANOVA</h1>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(ez, quietly = TRUE)
+data(&quot;ANT&quot;)
+head(ANT, n = 3)
+</code></pre>
+
+<pre><code>##   subnum     group block trial    cue   flank location direction       rt
+## 1      1 Treatment     1     1   None Neutral       up      left 398.6773
+## 2      1 Treatment     1     2 Center Neutral       up      left 389.1822
+## 3      1 Treatment     1     3 Double Neutral       up      left 333.2186
+##   error
+## 1     0
+## 2     0
+## 3     0
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h1>ANOVA</h1>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">res &lt;- ezANOVA(              ### The function
+data = ANT[ANT$error==0,],    ### The data to be used
+dv = rt,                   ### The dependent variable
+wid = subnum,              ### The subject factor
+within = .(cue,flank),     ### Within subject variable
+between = group,           ### group variablew
+type = 3                    ### Ensure that results are comparable to SPSS results
+)
+</code></pre>
+
+<pre><code>## Warning: Collapsing data to cell means. *IF* the requested effects are a
+## subset of the full design, you must use the &quot;within_full&quot; argument, else
+## results may be inaccurate.
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h1>ANOVA</h1>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">res$ANOVA
+</code></pre>
+
+<pre><code>##            Effect DFn DFd           F            p p&lt;.05        ges
+## 2           group   1  18   18.430592 4.377562e-04     * 0.07633358
+## 3             cue   3  54  516.605213 1.005518e-39     * 0.89662286
+## 5           flank   2  36 1350.598810 1.386546e-34     * 0.92710583
+## 4       group:cue   3  54    2.553236 6.497492e-02       0.04110445
+## 6     group:flank   2  36    8.768499 7.900829e-04     * 0.07627434
+## 7       cue:flank   6 108    5.193357 9.938494e-05     * 0.11436699
+## 8 group:cue:flank   6 108    6.377225 9.012515e-06     * 0.13686958
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h1>ANOVA</h1>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">res$`Mauchly&#39;s Test for Sphericity`
+</code></pre>
+
+<pre><code>##            Effect         W         p p&lt;.05
+## 3             cue 0.7828347 0.5366835      
+## 4       group:cue 0.7828347 0.5366835      
+## 5           flank 0.8812738 0.3415406      
+## 6     group:flank 0.8812738 0.3415406      
+## 7       cue:flank 0.1737053 0.1254796      
+## 8 group:cue:flank 0.1737053 0.1254796
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h1>ANOVA</h1>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">res$`Sphericity Corrections`
+</code></pre>
+
+<pre><code>##            Effect       GGe        p[GG] p[GG]&lt;.05       HFe        p[HF]
+## 3             cue 0.8652559 1.115029e-34         * 1.0239520 1.005518e-39
+## 4       group:cue 0.8652559 7.472046e-02           1.0239520 6.497492e-02
+## 5           flank 0.8938738 3.763312e-31         * 0.9858964 3.964046e-34
+## 6     group:flank 0.8938738 1.297752e-03         * 0.9858964 8.438369e-04
+## 7       cue:flank 0.6022111 1.546166e-03         * 0.7721473 4.745714e-04
+## 8 group:cue:flank 0.6022111 3.424499e-04         * 0.7721473 7.170939e-05
+##   p[HF]&lt;.05
+## 3         *
+## 4          
+## 5         *
+## 6         *
+## 7         *
+## 8         *
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h1>BAYES WILL TEAR US APART</h1>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>rbugs (R and WinBugs)</p></li>
+<li><p>rjags (R and JAGS)</p></li>
+<li><p>Rstan (R and STAN)</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h1>BayesFactor</h1>
+  </hgroup>
+  <article data-timings="">
+    <p>The BayesFactor package allows the easy computation of Bayes
+factors for common statistical designs</p>
+
+<p>BayesFactor is not suitable for parameter estimation</p>
+
+<p>This <a href="http://bayesfactorpcl.r-forge.r-project.org/">webpage</a> is absolutely amazing for further info </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Bayesian t-test</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">data(affect)
+library(BayesFactor)
+res = ttestBF(affect$neur[affect$Study == &quot;maps&quot;], affect$neur[affect$Study == &quot;maps&quot;], rscale = .707)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Bayesian t-test</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">res
+</code></pre>
+
+<pre><code>## Bayes factor analysis
+## --------------
+## [1] Alt., r=0.707 : 0.1232139 ±0%
+## 
+## Against denominator:
+##   Null, mu1-mu2 = 0 
+## ---
+## Bayes factor type: BFindepSample, JZS
+</code></pre>
+
+<pre><code class="r">1/res
+</code></pre>
+
+<pre><code>## Bayes factor analysis
+## --------------
+## [1] Null, mu1-mu2=0 : 8.115965 ±0%
+## 
+## Against denominator:
+##   Alternative, r = 0.707106781186548, mu =/= 0 
+## ---
+## Bayes factor type: BFindepSample, JZS
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Bayesian regression</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">lmBF(ext~Study, data = affect)
+</code></pre>
+
+<pre><code>## Bayes factor analysis
+## --------------
+## [1] Study : 0.1942419 ±0%
+## 
+## Against denominator:
+##   Intercept only 
+## ---
+## Bayes factor type: BFlinearModel, JZS
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Bayesian ANOVA</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">res &lt;- anovaBF(rt ~ cue *  group + subnum, whichRandom = &quot;subnum&quot;,
+  data = ANT, progress = FALSE)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Bayesian ANOVA</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">res
+</code></pre>
+
+<pre><code>## Bayes factor analysis
+## --------------
+## [1] group + subnum                   : 0.1523768     ±1.15%
+## [2] cue + subnum                     : 3.381332e+263 ±0.62%
+## [3] group + cue + subnum             : 5.541766e+262 ±1.68%
+## [4] group + cue + group:cue + subnum : 1.912368e+261 ±2.05%
+## 
+## Against denominator:
+##   rt ~ subnum 
+## ---
+## Bayes factor type: BFlinearModel, JZS
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Instructions on Assignment</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>All assignments can be found <a href="https://github.com/AngelosPsy/EPPR/tree/master/Assignments">here</a></li>
+<li>You can hand in your assignments by sending me an html document, with, when
+asked, runnable code.</li>
+<li>Go as far as possible with the assignment. If you cannot complete it, no problem.</li>
+<li>I AM AVAILABLE FOR QUESTIONS!!!!!!</li>
+<li>Note: make sure that you remove the &quot;eval = T&quot;, wherever you see it.</li>
+<li>Note: For writing text you should start each line with &quot;#&#39;&quot; (without the quotation marks)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>The end</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Goals of today&#39;s presentation'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Assignment 2'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Basic descriptives'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Correlations'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Correlations'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Linear regression (1)'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='NA'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='NA'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='NA'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='t.tests'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='t.tests (Indepedent samples)'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='t.tests (Dependent samples)'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='ANOVA'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='ANOVA'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='ANOVA'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='ANOVA'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='ANOVA'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='ANOVA'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='BAYES WILL TEAR US APART'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='BayesFactor'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Bayesian t-test'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Bayesian t-test'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Bayesian regression'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Bayesian ANOVA'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Bayesian ANOVA'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Instructions on Assignment'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='The end'>
+         28
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
