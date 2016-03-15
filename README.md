@@ -29,7 +29,7 @@ The **example code** can be found [here](https://github.com/AngelosPsy/EPPR/tree
 * [Lecture 2](http://htmlpreview.github.io/?https://github.com/AngelosPsy/EPPR/blob/master/Lecture2/index.html)
 * [Lecture 3](http://htmlpreview.github.io/?https://github.com/AngelosPsy/EPPR/blob/master/Lecture3/index.html)
 * [Lecture 4](http://htmlpreview.github.io/?https://github.com/AngelosPsy/EPPR/blob/master/Lecture4/index.html)  
-  
+* [Lecture 5](http://htmlpreview.github.io/?https://github.com/AngelosPsy/EPPR/blob/master/Lecture4/index.html)  
   
 ## Assignments
 Check [here](https://github.com/AngelosPsy/EPPR/tree/master/Assignments).
