@@ -13,7 +13,7 @@ about the course.
 | 3       |  22/01/2016    |  15:00 -- 17:00   | E120 |1) Loading Data (e.g., xls, sav), 2) If else statements, 3) Loops        |
 | 4       |  ~~05/02/2016~~   19/02/2016 |  15:00 -- 17:00   | ~~E124~~ E120 |Introduction to plots                             |  
 | 5       |  ~~19/02/2016    11/03/2016~~ 18/03/2016 |  15:00 -- 17:00   | ~~E120 E124~~  E314 | ~~1) Advanced Plots 2) Functions~~ Statistical Analyses with R (t.tests, ANOVAs, GLM)                     |	
-| 6       |  ~~11/03/2016  25/03/2016~~ 15/04/2016  |  15:00 -- 17:00   | ~~E124 H112~~ E314| ~~Statistical Analyses with R (t.tests, ANOVAs, GLM)~~ Popular request session|
+| 6       |  ~~11/03/2016  25/03/2016~~ 15/04/2016  |  15:30 -- 17:30   | ~~E124 H112~~ E314| ~~Statistical Analyses with R (t.tests, ANOVAs, GLM)~~ Popular request session|
 
 Note: You do not have to bring your laptop along. You will
 have the chance to work with R during the housework.
