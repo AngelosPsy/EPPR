@@ -196,6 +196,20 @@ apply(my.mat, 1, function(x) {median(x)})
 ## [1] 5 6
 ```
 
+---
+### Goals of the course
+
+* Goals of the course
+
+* Get you excited
+
+* Lose your fears about programming
+
+* Learn the very basic of how R works
+
+* Be able to manage your data, perform basic analyses, make plots, and create custom functions
+
+* Have fun!
 
 ---
 ## Instructions on Assignment
