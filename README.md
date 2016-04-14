@@ -42,6 +42,7 @@ dropbox links below:
 * [Assignment 2](https://www.dropbox.com/sh/puemzorw8m08ifv/AAD-OgzLdOpbt8vZiz2XB_2ua?dl=0)
 * [Assignment 3](https://www.dropbox.com/sh/fiuuqu98g730eu5/AAAvNxsx8eXqw-XkEFKNQ1xra?dl=0)
 * [Assignment 4](https://www.dropbox.com/s/dnnpw2yuws761re/assignmentW5.html?dl=0)
+* [Assignment 5](https://www.dropbox.com/sh/3q0782w3ftbsgwc/AABxVfvOGi5F3HiCBaTtKC01a?dl=0)
 
 ## Keys
 
@@ -57,3 +58,4 @@ Here are some hints to the assignments' solution. There will be no hints to assi
 * [Hints to assignment 2](https://www.dropbox.com/sh/p2cec39vdqfwtnn/AAAtKbLwoCJcqTc7lxSW1gR4a?dl=0)
 * [Hints to assignment 3](https://www.dropbox.com/sh/s0ck338wbe06jh9/AADIt20CNoYyhwScCFwNUA2na?dl=0)
 * [Hints to assignment 4](https://www.dropbox.com/s/j6296dwkmadeg00/assignmentW5_hints.html?dl=0)
+* [Hints to assignment 5](https://www.dropbox.com/sh/nt2hosicexov3yw/AABNyEiiAQpoZMPA5QFJQRf5a?dl=0)
