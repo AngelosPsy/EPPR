@@ -1,5 +1,5 @@
 #' ---
-#' title: "R for EPP research\n Assignment 3"
+#' title: "R for EPP research\n Assignment 4"
 #'author: "Angelos-Miltiadis Krypotos"
 #'date: "`r Sys.Date()`"
 #'---
