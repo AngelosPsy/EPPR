@@ -11,9 +11,9 @@ about the course.
 | 1       |  19/11/2015    |  12:00 -- 14:00   | E124 |A tiny introduction                               |
 | 2       |  08/01/2015    |  15:00 -- 17:00   | E124 |1) Objects, 2) Indexing, 3) Directories           | 
 | 3       |  22/01/2016    |  15:00 -- 17:00   | E120 |1) Loading Data (e.g., xls, sav), 2) If else statements, 3) Loops        |
-| 4       |  ~~05/02/2016~~   19/02/2016 |  15:00 -- 17:00   | ~~E124~~ E120 |Introduction to plots                             |  
-| 5       |  ~~19/02/2016    11/03/2016~~ 18/03/2016 |  15:00 -- 17:00   | ~~E120 E124~~  E314 | ~~1) Advanced Plots 2) Functions~~ Statistical Analyses with R (t.tests, ANOVAs, GLM)                     |	
-| 6       |  ~~11/03/2016  25/03/2016~~ 15/04/2016  |  15:30 -- 17:30   | ~~E124 H112~~ E314| ~~Statistical Analyses with R (t.tests, ANOVAs, GLM)~~ Popular request session|
+| 4       |  19/02/2016 |  15:00 -- 17:00   | E120 |Introduction to plots                             |  
+| 5       |  18/03/2016 |  15:00 -- 17:00   | E314 | Statistical Analyses with R (t.tests, ANOVAs, GLM) |	
+| 6       |  15/04/2016  |  15:30 -- 17:30   | E314| Popular request session|
 
 Note: You do not have to bring your laptop along. You will
 have the chance to work with R during the housework.
@@ -50,7 +50,8 @@ dropbox links below:
 * [Key to assignment 2](https://www.dropbox.com/sh/x0y69gg9sspky1f/AABAliE7D-0TYRU_tCwfZ3ana?dl=0)
 * [Key to assignment 3](https://www.dropbox.com/s/qa4o05b94tc3nqz/assignmentW4Solution.html?dl=0)
 * [Key to assignment 4](https://www.dropbox.com/s/hn6hxm0xiq12spp/assignmentW5Solution.html?dl=0)
- 
+* [Key to assignment 5](https://www.dropbox.com/s/wxkri4x5whb67eu/assignmentW6Solution.html?dl=0) 
+
 ## Hints
 
 Here are some hints to the assignments' solution. There will be no hints to assignment 1.
